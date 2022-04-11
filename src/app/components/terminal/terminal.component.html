@@ -1,0 +1,24 @@
+<div class="terminal">
+	<!--
+	<div class="card m-1"
+	     *ngFor="let error of errorsList">
+				  <div class="card-body">
+				    <h5 [ngClass]="['card-title', error.color ]">{{error.title}}</h5>
+				    <h6 class="card-subtitle text-muted">{{error.timestamp}}</h6>
+				    <p class="card-text">{{error.message}}</p>
+				  </div>
+	</div>
+	-->
+	<div class="notification"
+	     *ngFor="let error of errorsList">
+		<span><span [ngClass]="[error.color]"><b>{{error.title}}:</b></span> {{error.message}} </span>
+		<small class="timestamp">{{error.timestamp}}</small>
+
+	</div>
+
+</div>
+<div class="container">
+</div>
+
+
+

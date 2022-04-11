@@ -1,0 +1,49 @@
+.example-form mat-slide-toggle {
+    margin: 8px 0;
+    display: block;
+}
+
+.sensor {
+    border: 1px solid red;
+}
+
+.mat-card {
+    background-color: #FFFAFA;
+    height: 30px;
+    margin:7px;
+    padding:1px;
+    padding-left: 0px;
+    width: 100%;
+}
+
+#myForm {
+    width: 100%;
+}
+
+.container {
+
+}
+
+li {
+    margin:2px;
+    float: left;
+    height: 90%;
+
+}
+
+
+ul {
+    display: block;
+    width: 100%;
+    padding-left: 4px;
+    list-style-type: none;
+    overflow: hidden;
+}
+
+right {
+    align-items: end;
+}
+
+.disabled {
+    pointer-events:none;
+}

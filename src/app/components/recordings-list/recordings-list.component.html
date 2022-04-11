@@ -1,0 +1,7 @@
+<div class="card m-1" *ngFor="let recording of recordingsList">
+	  <div class="card-body">
+	    <h5 [ngClass]="['card-title']">{{recording.name}}</h5>
+	    <h6 class="card-subtitle text-muted">{{recording.startTime.toLocaleString()}}</h6>
+	    <p class="card-text">{{recording.sensors.toLocaleString()}}</p>
+	  </div>
+</div>

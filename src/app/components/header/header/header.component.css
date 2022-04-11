@@ -1,0 +1,9 @@
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.controlpanelstate {
+    position: relative;
+    left:30%;
+}

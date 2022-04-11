@@ -1,0 +1,24 @@
+<div class="container" [class.disabled]="isRecording">
+	<form id="myForm"
+          #myForm="ngForm"
+	      ngNativeValidate>
+	<mat-card *ngFor="let sensor of sensorsList">
+		<ul>
+			<li class=""
+			    style="color:#b0a09d;float:left;width: 12%;"><span>{{sensor.id}}</span></li>
+			<li class="w-25"><span style="font-size:16px;color:black;"> <b>{{sensor.name}}</b></span></li>
+			<li class="w-25"><span style="color: grey;">{{sensor.type}}</span></li>
+			<li class="w-25"
+			    style="float:right;">
+			<mat-slide-toggle style="float:right;color:black;"
+				                  ngModel
+				                  name="{{sensor.id}}">
+			</mat-slide-toggle>
+			</li>
+		</ul>
+	</mat-card>
+	</form>
+</div>
+<div class="container" *ngIf="!controlpanelConnected">
+	<h2>no Sensors found!</h2>
+</div>

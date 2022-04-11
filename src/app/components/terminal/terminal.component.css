@@ -1,0 +1,15 @@
+.terminal {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.notification {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid dimgrey;
+}
+
+.timestamp {
+    color:grey;
+    text-align: right;
+}

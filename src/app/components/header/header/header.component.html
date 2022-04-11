@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+  <span>
+   <a routerLink="/">LearnHub</a>
+  </span>
+  <span class="spacer">
+  </span>
+  <div></div>
+  <button
+          type="button"
+          class="controlpanelstate btn btn-success"
+  *ngIf="controlpanelConnected">Controlpanel Connected</button>
+  <button type="button" class="btn btn-danger controlpanelstate" *ngIf="!controlpanelConnected">Controlpanel ist not Connected</button>
+</mat-toolbar>

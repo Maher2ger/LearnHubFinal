@@ -1,0 +1,30 @@
+.container {
+    flex-direction: column;
+    font-family: monospace;
+    border: 1px solid red;
+}
+
+.timer-counter-label{
+    display: flex;
+    align-items: center;
+
+}
+
+.timer-button-container{
+    display: flex;
+}
+.timer-button{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    font-size: 2em;
+    padding: 10px;
+    margin: 5px 10px;
+    min-width: 150px;
+}
+
+stopwatchText {
+    height:100px;
+    margin: 10px;
+    font-family: "Times New Roman", Times, serif;
+}
