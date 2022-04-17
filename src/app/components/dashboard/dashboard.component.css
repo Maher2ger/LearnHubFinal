@@ -1,0 +1,159 @@
+
+.col {
+}
+
+#sensors {
+    display: flex;
+    overflow-y: scroll;
+    height: 100%;
+
+}
+
+.footer {
+    position: relative;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    width:100%;
+    background-color: #ffeaea;
+}
+
+body {
+    width:100%;
+    height: 100%;
+}
+
+#page-content {
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 83%;
+    padding-top: 1em;
+}
+
+#left {
+    border: 1px solid grey;
+    height: 100%;
+    left: 0;
+    margin-right: 8px;
+
+}
+
+#right {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+    right: 0px;
+    justify-content: center;
+    align-items: center;
+}
+
+#content-wrapper {
+    height: 100%;
+}
+
+app-header {
+    display: block;
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+
+}
+
+#middle {
+    padding:1px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 60%;
+    height: 80%;
+    overflow-y: scroll;
+
+
+
+}
+
+#middle2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid grey;
+    width:35%;
+    margin:5px;
+    height: 95%;
+}
+
+#circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid grey;
+    border-radius: 50%;
+    position: relative;
+    width: 200px;
+    height: 200px;
+
+}
+
+
+.circle-content {
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#terminal {
+    margin-left: 8px;
+    margin-top: 0px;
+    height: 48%;
+    overflow-y: scroll;
+    border: 1px solid grey;
+    width: 99%;
+}
+
+#recordings {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-left: 8px;
+    margin-top: 8px;
+    height: 48%;
+    overflow-y: scroll;
+    border: 1px solid grey;
+    width: 99%;
+}
+
+#control-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid grey;
+    margin-left: 2px;
+    height:100%;
+
+
+}
+
+.center {
+    justify-content: center;
+    align-items: center;
+}
+
+.border {
+    border: 2px solid red;
+}
+
+#recordingForm {
+    top:10px;
+    height: 30%;
+    margin-bottom:30px;
+    align-items: center;
+
+}

@@ -1,7 +1,26 @@
-<div class="card m-1" *ngFor="let recording of recordingsList">
+<div class="card m-1"
+     *ngFor="let recording of recordingsList">
 	  <div class="card-body">
 	    <h5 [ngClass]="['card-title']">{{recording.name}}</h5>
 	    <h6 class="card-subtitle text-muted">{{recording.startTime.toLocaleString()}}</h6>
-	    <p class="card-text">{{recording.sensors.toLocaleString()}}</p>
+	    <p class="card-text">
+		<mat-form-field class="example-chip-list" appearance="outline">
+            <mat-label>Sensors:</mat-label>
+		    <mat-chip-list
+				    class="example-chip"
+				    cdkDropList
+				    cdkDropListOrientation="horizontal"
+				    >
+			  <mat-chip
+					  class="example-box"
+					  cdkDrag
+					  *ngFor="let sensor of recording.sensors">
+			    {{sensor}}
+			  </mat-chip>
+			</mat-chip-list>
+		</mat-form-field>
+
+
+	    </p>
 	  </div>
 </div>

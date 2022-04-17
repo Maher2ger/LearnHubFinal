@@ -9,7 +9,7 @@ import {Subscription} from "rxjs";
            })
 export class TerminalComponent implements OnInit {
 	errorsList: any[] = [];
-	private _stateSub!: Subscription;
+	//private _stateSub!: Subscription;
 	private _errSub!: Subscription;
 
 	constructor(public socketservice: SocketService) {
@@ -23,7 +23,6 @@ export class TerminalComponent implements OnInit {
 	}
 
 	ngOnDestroy() {
-		this._stateSub.unsubscribe();
 		this._errSub.unsubscribe();
 	}
 

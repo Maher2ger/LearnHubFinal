@@ -2,12 +2,24 @@
   <span>
    <a routerLink="/">LearnHub</a>
   </span>
-  <span class="spacer">
-  </span>
-  <div></div>
+  <div class="spacerDiv"></div>
+  <div class="spacerDiv"></div>
+  <div class="spacerDiv"></div>
+  <div class="spacerDiv"></div>
   <button
+		  type="button"
+		  class="controlpanelstate btn btn-success"
+		  *ngIf="controlpanelConnected && userIsAuthenticated">Controlpanel Connected</button>
+  <button type="button"
+          class="btn btn-danger controlpanelstate"
+          *ngIf="!controlpanelConnected && userIsAuthenticated">Controlpanel ist not Connected</button>
+    <div class="spacerDiv"></div>
+  <div class="spacerDiv"></div>
+  <div class="spacerDiv"></div>
+
+  <button id="logoutButton"
           type="button"
-          class="controlpanelstate btn btn-success"
-  *ngIf="controlpanelConnected">Controlpanel Connected</button>
-  <button type="button" class="btn btn-danger controlpanelstate" *ngIf="!controlpanelConnected">Controlpanel ist not Connected</button>
+          class="btn btn-warning"
+          (click)="logout()"
+          *ngIf="userIsAuthenticated">Logout</button>
 </mat-toolbar>

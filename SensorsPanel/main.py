@@ -31,10 +31,8 @@ def printData(data):
 
 @sio.on('S_startRecording')
 def startRecording(data):
-    print(data)
     for sensor in app.getSensorsList():
         if data[sensor.id]:
-            print(data[sensor.id])
             sensor.sensorOnOffWithValue(True)
 
 @sio.on('S_stopRecording')

@@ -4,6 +4,17 @@ a {
 }
 
 .controlpanelstate {
-    position: relative;
-    left:30%;
+
+}
+
+.spacerDiv {
+    width: 10%;
+}
+
+#logoutButton {
+    float: right;
+}
+
+div {
+
 }

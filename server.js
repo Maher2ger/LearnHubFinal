@@ -11,6 +11,9 @@ httpServer.listen(port, function () {
     console.log('Server works on port ' + port);
 })
 
+
+
+
 // Socket setup & pass server
 
 const io = sio(httpServer, {
@@ -31,16 +34,17 @@ let controlPanelId = null;  //ControlPanel Socket ID: null by default, will get 
 // , when the control Panel is connected
 let isRecording = false;    //is true, when the conrolpanel is recording
 
+
+
+
 // ------ Socket connection init ----------
 //
 io.on('connection', (socket) => {   // when new client connect to the io socket
-                                    //socket.handshake.headers.type: header field, tells us, if the client is a webbrowser or the control panel (python)
-                                    // + socket ID
+    //socket.handshake.headers.type: header field, tells us, if the client is a webbrowser or the control panel (python)
+    // + socket ID
     console.log(socket.handshake.headers.type + " connected, id: " + socket.id); // show when the client connected
 
     let recording;
-
-
 
 
     //if the client is controlloanel
@@ -119,7 +123,7 @@ io.on('connection', (socket) => {   // when new client connect to the io socket
                         color: 'text-success'
                     });
                 recording = {
-                    id:"###",
+                    id: "###",
                     name: data['recordingName'],
                     sensors: [],
                     comments: data['comments'],
@@ -135,14 +139,13 @@ io.on('connection', (socket) => {   // when new client connect to the io socket
                 }
 
 
-
             } else {
                 socket.emit('S_notifacation',
                     {
                         title: "start-recording",
                         message: "start recording is not possible, ControlPanel is not connected!",
                         timestamp: new Date().toTimeString().split(' ')[0],
-                        color:"text-warning"
+                        color: "text-warning"
                     });
             }
             //we create a new recording instance
@@ -165,7 +168,7 @@ io.on('connection', (socket) => {   // when new client connect to the io socket
                     color: 'text-success'
                 });
             recording.endTime = new Date();
-            recording.duration =  (recording.endTime - recording.startTime)/1000;
+            recording.duration = (recording.endTime - recording.startTime) / 1000;
             console.log(recording);
             io.emit('recording', recording);
         } else {
@@ -175,7 +178,8 @@ io.on('connection', (socket) => {   // when new client connect to the io socket
                     message: "stop recording is not possible, ControlPanel not connected!",
                     timestamp: new Date().toTimeString().split(' ')[0],
                     color: 'text-warning'
-                });        }
+                });
+        }
 
 
     })

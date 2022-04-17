@@ -1,0 +1,78 @@
+<mat-card>
+  <form (submit)="onSignup(signupForm)"
+        #signupForm="ngForm">
+	  <mat-card-title-group>
+    <mat-card-title>Sign Up</mat-card-title>
+    <mat-card-subtitle>goethe university</mat-card-subtitle>
+  </mat-card-title-group>
+	  <div class="alert alert-danger" role="alert" *ngIf="alert">
+{{alert}}</div>
+	  <mat-card-content>
+	<mat-form-field>
+          <mat-label>Name:</mat-label>
+          <input
+		          matInput
+		          type="text"
+		          name="uname"
+		          placeholder="Your name"
+                  #uname="ngModel"
+		          ngModel
+		          required>
+    </mat-form-field>
+
+	<br>
+
+	<mat-form-field>
+          <mat-label>E-Mail Address:</mat-label>
+          <input
+		          matInput
+		          type="email"
+		          name="uemail"
+		          placeholder="Email address"
+                  #uemail="ngModel"
+		          ngModel
+		          required
+		          email>
+    </mat-form-field>
+
+	<br>
+	<mat-form-field>
+          <mat-label>student number:</mat-label>
+          <input
+		          matInput
+		          type="text"
+		          name="uStudentNumber"
+		          placeholder="student number"
+                  #uStudentNumber="ngModel"
+		          ngModel
+		          >
+    </mat-form-field>
+
+	<br>
+
+
+    <mat-form-field appearance="fill">
+      <mat-label>Password:</mat-label>
+      <input matInput
+             type="password"
+             placeholder="Enter your password"
+             name="upassword"
+             ngModel
+             #upassword="ngModel"
+             required>
+    </mat-form-field>
+
+    <br>
+    <button mat-raised-button
+            type="submit"
+            color="primary">sign up
+    </button>
+		  <div style="float: right;">
+		already registered?
+		<a routerLink="/login">login</a>
+	</div>
+		  </mat-card-content>
+  </form>
+
+</mat-card>
+
