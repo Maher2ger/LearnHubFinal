@@ -1,15 +1,41 @@
 .terminal {
+    height: 100%;
     display: flex;
     flex-direction: column-reverse;
+    overflow-y: auto;
+
+
 }
 
 .notification {
     display: flex;
-    flex-direction: column;
-    border-bottom: 1px solid dimgrey;
+    flex-direction: column-reverse;
 }
 
 .timestamp {
-    color:grey;
+    color: lightsteelblue;
     text-align: right;
+    font-size: 9px;
+
 }
+
+.error-message {
+    color: white;
+}
+
+.font {
+    font-family: "Arial Narrow", Arial, sans-serif;
+}
+
+ul {
+    list-style-type: none;
+    width:100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+

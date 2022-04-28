@@ -11,3 +11,15 @@ mat-card {
     left: 35%;
     top: 5em;
 }
+
+.background {
+    height: calc(100% - 50px);
+    position: fixed;
+    width:50%;
+
+}
+
+#logo {
+    opacity: 0.6;
+    width: 500px;
+}

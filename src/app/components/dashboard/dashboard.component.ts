@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {Subscription} from "rxjs";
 import {Recording} from "../../models/recording.model";
 import {SocketService} from "../../services/socket.service";
@@ -44,10 +44,11 @@ export class DashboardComponent implements OnInit {
 
 
 	ngOnInit() {
+		//load localRecordingslist from socketservice
+		this.recordingsList = this.socketservice.getLocalRecordingslist();
 		this._authSub = this.authService.getAuthStatusList()
 		                    .subscribe((isAuthenticated) => {
 			                    this.userIsAuthenticated = isAuthenticated;
-			                    console.log(isAuthenticated);
 		                    })
 		//subscribe to sensorsList var in socketservice to get the sensorsList
 		this._sensorsSub = this.socketservice.sensorsList
@@ -84,7 +85,7 @@ export class DashboardComponent implements OnInit {
 		//onInit, request the sensors List from Server
 		this._recordingFileSub = this.socketservice.recordingFile
 		                             .subscribe((recording: Recording) => {
-			                             this.recordingsList.push(recording);
+			                             this.socketservice.addToLocalRecordingslist(recording);
 		                             })
 
 
@@ -108,7 +109,7 @@ export class DashboardComponent implements OnInit {
 		// recording name
 		if (this.recordingForm.value['recording-name'] === null || this.recordingForm.value['recording-name'] === "") {
 			//if not, name the recording 'new recording ' with time now
-			recordingName = "New Recording - " + Date.now();
+			recordingName = "NewRec- " + Date.now();
 		} else {
 			recordingName = this.recordingForm.value['recording-name'];
 		}

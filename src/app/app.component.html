@@ -1,10 +1,18 @@
-<app-header></app-header>
-<router-outlet></router-outlet>
+<div class="body">
 
-
-<footer class="d-flex flex-wrap justify-content-between align-items-center py-2 border-top footer position-fixed">
-    <div class="col-md-2 d-flex align-items-center">
+<header>
+    <app-header></app-header>
+</header>
+<div class="pageBody">
+    <app-sidenav *ngIf="userIsAuthenticated"></app-sidenav>
+    <div class="dashboard">
+            <router-outlet></router-outlet>
+    </div>
+</div>
+<footer class="footer">
+    <div>
       <span class="text-muted">© 2022 Goethe University</span>
     </div>
   </footer>
+</div>
 

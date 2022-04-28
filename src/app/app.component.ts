@@ -19,6 +19,9 @@ import {AuthService} from "./services/auth.service";
            })
 export class AppComponent implements OnInit {
 	//access the child comp StopwatchComponent
+	private _authSub!: Subscription;
+	userIsAuthenticated: boolean = false;
+	recordingsList: Recording[] = [];
 
 
 
@@ -32,10 +35,15 @@ export class AppComponent implements OnInit {
 
 	ngOnInit() {
 		this.authService.autoAuthUser();
+		this._authSub = this.authService.getAuthStatusList()
+		                    .subscribe((isAuthenticated) => {
+			                    this.userIsAuthenticated = isAuthenticated;
+		                    })
 
 	}
 
 	ngOnDestroy() {
+		this._authSub.unsubscribe();
 	}
 
 

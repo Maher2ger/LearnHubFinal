@@ -24,8 +24,6 @@ router.post('/login', (req, res) => {
                         .then(result => {
                             if (result) {  //if we the result equal to true, then the given password is correct
                                 //create the token
-                                console.log("Auth succeeded: ");
-                                console.log(result);
                                 const token = jwt.sign({
                                         email: user.email,
                                         userId: user._id
@@ -80,7 +78,6 @@ router.post("/signup", (req, res) => {
                                 result: result
                             })
                         }).catch(err => {
-                        console.log(err);
                         res.status(500).json({
                             error: err
                         })

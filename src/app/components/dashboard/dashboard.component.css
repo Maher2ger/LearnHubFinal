@@ -1,102 +1,26 @@
 
-.col {
-}
-
-#sensors {
-    display: flex;
-    overflow-y: scroll;
-    height: 100%;
-
-}
-
-.footer {
-    position: relative;
-    z-index: 1;
-    bottom: 0;
-    left: 0;
-    width:100%;
-    background-color: #ffeaea;
-}
-
-body {
-    width:100%;
-    height: 100%;
-}
-
-#page-content {
-    display: block;
-    margin: auto;
-    width: 100%;
-    height: 83%;
-    padding-top: 1em;
-}
-
-#left {
-    border: 1px solid grey;
-    height: 100%;
-    left: 0;
-    margin-right: 8px;
-
-}
-
-#right {
-    display: flex;
-    flex-direction: column;
-    padding: 0px;
-    margin: 0px;
-    height: 100%;
-    right: 0px;
-    justify-content: center;
-    align-items: center;
-}
-
-#content-wrapper {
-    height: 100%;
-}
-
-app-header {
-    display: block;
-    position: relative;
-    width: 100%;
-    top: 0;
-    left: 0;
-
-
-}
-
-#middle {
-    padding:1px;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    width: 60%;
-    height: 80%;
-    overflow-y: scroll;
 
 
 
-}
 
-#middle2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid grey;
-    width:35%;
-    margin:5px;
-    height: 95%;
-}
+
+
+
+
+
+
 
 #circle {
+    background-color: white;
+
     display: flex;
     justify-content: center;
     align-items: center;
     border: 2px solid grey;
     border-radius: 50%;
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: calc(100vw - 89vw);
+    height: calc(100vw - 89vw);
 
 }
 
@@ -119,41 +43,130 @@ app-header {
     width: 99%;
 }
 
-#recordings {
+
+
+
+
+.center {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+.dashboard {
+    display: grid;
+    grid-template-rows: 10% 40% 40% 10%;
+    grid-template-columns: auto 300px;
+    width: 100%;
+    height:100%;
+}
+
+
+
+.controlArea {
+    background-color: #F3F5F9;
+    width:98%;
+    display:grid;
+    grid-template-rows: 2% 40% 40% 10%;
+    grid-template-columns: 65% 35%;
+
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 4;
+}
+
+.sidenav-right {
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 5;
+}
+
+.sensorsList{
+    background-color: #f8f9f2;
+    height:100%;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.controlDiv {
+    background-color: #f8f9f2;
+    height:100%;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#cardBodySensors {
+    overflow-y: scroll;
+}
+
+.stopwatch {
+    margin:5px;
+    display:flex;
+    justify-content: center;
+    align-content: center;
+
+
+}
+
+.recordingForm {
+    background-color: #f8f9f2;
+}
+
+#recordingsCard {
+    overflow-y: scroll;
     display: flex;
     flex-direction: column-reverse;
+
+}
+
+.recordings {
+    padding:0;
     margin-left: 8px;
     margin-top: 8px;
     height: 48%;
+    width: 97%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: white;
+}
+
+.terminal {
+    padding:0;
+    margin-left: 8px;
+    margin-top: 8px;
+    height: 48%;
+    width: 97%;
+    background-color:  #444040 ;
+
+}
+
+
+#terminalId {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding:0;
     overflow-y: scroll;
-    border: 1px solid grey;
-    width: 99%;
 }
 
-#control-area {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid grey;
-    margin-left: 2px;
-    height:100%;
-
-
+app-sensors-list {
+    height: 90%;
 }
 
-.center {
-    justify-content: center;
-    align-items: center;
-}
-
-.border {
-    border: 2px solid red;
-}
-
-#recordingForm {
-    top:10px;
-    height: 30%;
-    margin-bottom:30px;
-    align-items: center;
-
-}

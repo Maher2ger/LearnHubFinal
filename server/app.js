@@ -14,6 +14,7 @@ const mongoose = require('mongoose');
 
 //import Routes file
 const userRoutes = require('./routes/users');
+const recordingRoutes = require('./routes/recordings');
 
 
 ////////////////////////////////////////////////////////////////
@@ -42,17 +43,12 @@ app.use((req, res, next) => {
 //public media
 app.use("/media",express.static(path.join('server/media')));
 
-app.get('', (req, res) => {
-    console.log("get req!");
-    res.status(200).json({
-        message: 'server works!   maher'
-    })
-})
 
 
 
 ///////////Routes
 app.use('/users', userRoutes);
+app.use('/recordings', recordingRoutes);
 
 
 ////////// Listening

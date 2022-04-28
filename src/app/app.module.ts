@@ -14,6 +14,12 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 //components
 import {TerminalComponent} from './components/terminal/terminal.component';
@@ -39,6 +45,9 @@ import {AuthInterceptor} from "./services/interceptors/auth.interceptor";
 
 //inceptors
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { RecordingsTabComponent } from './components/recordings-tab/recordings-tab.component';
+import { RecordingDetailsComponent } from './components/recording-details/recording-details.component';
 
 
 const config: SocketIoConfig = {
@@ -59,7 +68,10 @@ const config: SocketIoConfig = {
 		          RecordingsListComponent,
             DashboardComponent,
             LoginComponent,
-            SignupComponent],
+            SignupComponent,
+            SidenavComponent,
+            RecordingsTabComponent,
+            RecordingDetailsComponent],
 	          imports                              : [
 		          BrowserModule,
 		          FormsModule,
@@ -77,7 +89,13 @@ const config: SocketIoConfig = {
 		          AngularSvgIconModule.forRoot(),
 		          MatChipsModule,
 		          NgbModule,
-		          MatFormFieldModule,],
+		          MatFormFieldModule,
+		          MatSidenavModule,
+		          MatIconModule,
+		          MatDividerModule,
+		          MatTableModule,
+		          MatSortModule,
+		          MatProgressSpinnerModule],
 	          providers                            : [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
 	          bootstrap                            : [AppComponent]
           })

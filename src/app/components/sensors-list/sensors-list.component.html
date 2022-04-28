@@ -1,4 +1,10 @@
+
+
+
 <div class="container" [class.disabled]="isRecording">
+	<h1 *ngIf="sensorsList.length==0">
+	no Sensors found!
+</h1>
 	<form id="myForm"
           #myForm="ngForm"
 	      ngNativeValidate>
@@ -18,7 +24,7 @@
 		</ul>
 	</mat-card>
 	</form>
+
 </div>
-<div class="container" *ngIf="!controlpanelConnected">
-	<h2>no Sensors found!</h2>
-</div>
+
+

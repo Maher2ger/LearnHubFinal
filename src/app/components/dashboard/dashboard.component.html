@@ -1,93 +1,116 @@
-<section id="page-content"
-         class="">
-		<div id="content-wrapper"
-		     class="row p-2 m-1">
-			<div id="left"
-			     class="col-2 rounded-3 left">
-				<p>#Sensors: {{sensorsList.length}}</p>
-				<p *ngIf="userIsAuthenticated">{{userIsAuthenticated}}</p>
-				<p>mo {{true}}</p>
-
-			</div>
-
-
-
-
-
-
-			<div id="control-area"
-			     class="col-7 d-flex rounded-3">
-				<div id="middle"
-				     class="rounded-3 p-2 m-2">
-					<div class="w-100 h-100">
-						<app-sensors-list [sensorsList]="sensorsList"
-						                  [controlpanelConnected]="controlpanelConnected"
-						                  [isRecording]="isRecording">
+<div class="dashboard">
+	<div class="controlArea m-1 p-1 rounded-2">
+		<div class="sensorsList rounded-3 m-3">
+		<h5
+				class="card-header"
+		><b>Sensorslist</b>  <p style="float: right;">#: {{sensorsList.length}}</p>	  </h5>
+			<app-sensors-list
+					[sensorsList]="sensorsList"
+					[controlpanelConnected]="controlpanelConnected"
+					[isRecording]="isRecording"
+			>
 				</app-sensors-list>
-					</div>
-
+		</div>
+		
+	<div class="controlDiv rounded-3 m-3">
+		<h5
+				class="card-header"
+		><b>Recording Info</b> 	  </h5>
+		
+			<div class="stopwatch rounded-3 m-3">
+			<div id="circle">
+						<div class="circle-content">
+								<app-stopwatch></app-stopwatch>
+								<button
+										class="btn btn-primary m-1 w-100"
+										type="button"
+										(click)="startRecording()"
+										*ngIf="!isRecording"
+										[disabled]="!controlpanelConnected"
+								>
+								start recording</button>
+			                    <button
+					                    class="btn btn-danger m-1 w-100"
+					                    type="button"
+					                    (click)="stopRecording()"
+					                    *ngIf="isRecording"
+			                    >stop</button>
+						</div>
+		</div>
 			</div>
 
-				<div id="middle2"
-				     class="container rounded-3">
-					<div id="recordingForm"
-					     class="container">
-						<form
-                            #recordingForm="ngForm">
-							<ul>
-
-							</ul>
+		<div class="recordingForm rounded-3 m-3">
+			<div class="container">
+							<form
+									#recordingForm="ngForm"
+							>
 							<div class="panel panel-info">
-								<label for="recording-name">Recording Information:</label>
-								<input type="text"
-								       class="form-control form-control-sm mb-2"
-								       id="recording-name"
-								       name="recording-name"
-								       placeholder="recording name"
-								       ngModel>
+								<input
+										type="text"
+										class="form-control form-control-sm mb-2"
+										id="recording-name"
+										name="recording-name"
+										placeholder="recording name"
+										ngModel
+								>
 							</div>
 
 							<div class="form-group">
-							<textarea id="comments"
-							          class="form-control form-control-sm mb-2"
-							          name="comments"
-							          type="text"
-							          placeholder="comments"
-							          ngModel></textarea>
+							<textarea
+									id="comments"
+									class="form-control form-control-sm mb-2"
+									name="comments"
+									type="text"
+									placeholder="comments"
+									ngModel
+							></textarea>
 							</div>
 						</form>
-					</div>
 
-					<div id="circle">
-						<div class="circle-content">
-								<app-stopwatch></app-stopwatch>
-								<button class="btn btn-primary m-1 w-100"
-								        type="button"
-								        (click)="startRecording()"
-								        *ngIf="!isRecording"
-								        [disabled]="!controlpanelConnected"
-								>start recording</button>
-			                    <button class="btn btn-danger m-1 w-100"
-			                            type="button"
-			                            (click)="stopRecording()"
-			                            *ngIf="isRecording">stop</button>
-						</div>
-				</div>
-
-
-			</div>
-			</div>
-			<div id="right"
-			     class="col">
-				<div id="terminal"
-				     class=" row h-50 bg-light rounded-3">
-					<app-terminal></app-terminal>
-				</div>
-
-				<div id="recordings"
-				     class="row h-50 bg-light rounded-3">
-					<app-recordings-list [recordingsList]="recordingsList"></app-recordings-list>
-				</div>
 			</div>
 		</div>
-</section>
+		</div>
+		
+	
+	</div>
+	
+	
+	<!--                           Right Section                       -->
+	
+
+<div class="sidenav-right">
+			<!-- Recording List -->
+				<div class="card recordings m-1 rounded-2">
+					  <h5 class="card-header"> <b>Recordings history</b>  <p
+							  style="float: right;
+					  padding:0px; margin:0px;"
+					  >#:
+						  {{recordingsList.length}}</p>
+					  </h5>
+					  <div
+							  class="card-body"
+							  id="recordingsCard"
+					  >
+
+						<app-recordings-list [recordingsList]="recordingsList"></app-recordings-list>
+						  </div>
+				</div>
+			
+			<!-- Terminal -->
+			<div class="card terminal m-1 rounded-2">
+					  <h5
+							  style="color: white;"
+							  class="card-header"
+					  ><b>Terminal</b> 	  </h5>
+					  <div
+							  class="card-body"
+							  id="terminalId"
+					  >
+											<app-terminal></app-terminal>
+					  </div>
+				</div>
+
+	</div>
+
+
+</div>

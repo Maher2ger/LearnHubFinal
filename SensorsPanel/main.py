@@ -39,6 +39,7 @@ def startRecording(data):
 def stopRecording():
     for sensor in app.getSensorsList():
         sensor.sensorOnOffWithValue(False)
+    sio.emit("cp_recordingFile", )
 
 
 @sio.on('S_getSensorsList')

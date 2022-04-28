@@ -1,0 +1,72 @@
+<div class="header">
+	<button (click)="goBack()"
+	        class="btn btn-outline-secondary m-1"><i class="bi bi-arrow-left"></i>back</button>
+</div>
+<div class="spinner"
+     *ngIf="isLoading">
+  <mat-spinner>
+</mat-spinner>
+
+</div>
+
+<div class="container"
+     *ngIf="!isLoading">
+	<div class="card">
+  <div class="card-header">
+   <b>{{recording.name}}</b>
+  </div>
+  <div class="card-body">
+	  <ul>
+		  <li class="w-25">id: </li>
+		  <li>{{recording._id}}</li>
+	  </ul>
+
+	  <ul>
+		  <li class="w-25">name: </li>
+		  <li>{{recording.name}}</li>
+	  </ul>
+	  <ul>
+		  <li class="w-25">duration: </li>
+		  <li>
+			  {{millisToMinutesAndSeconds(recording.startTime, recording.endTime)}}
+		  </li>
+	  </ul>
+
+	  <ul>
+		  <li class="w-25">comments: </li>
+		  <li><textarea name=""
+		                id=""
+		                cols="30"
+		                rows="2">{{recording.comments}}</textarea></li>
+	  </ul>
+
+	  <ul>
+		  <li class="w-25">sensors: </li>
+		  <li>
+			  <mat-form-field class="example-chip-list" appearance="outline">
+            <mat-label>Sensors:</mat-label>
+		    <mat-chip-list
+				    class="example-chip"
+				    cdkDropList
+				    cdkDropListOrientation="horizontal"
+		    >
+			  <mat-chip
+					  class="example-box"
+					  cdkDrag
+					  *ngFor="let sensor of recording.sensors">
+			    {{sensor}}
+			  </mat-chip>
+			</mat-chip-list>
+		</mat-form-field>
+		  </li>
+	  </ul>
+	  <ul>
+		  <li class="w-25">creator-ID: </li>
+		  <li>{{recording.creator}}</li>
+	  </ul>
+
+
+  </div>
+</div>
+
+</div>

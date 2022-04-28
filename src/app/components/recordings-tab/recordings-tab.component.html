@@ -1,0 +1,70 @@
+<div class="header">
+  <div id="counter">
+      <p> #recordings: {{tableData.length}}</p>
+
+  </div>
+</div>
+
+<div class="spinner"  *ngIf="isLoading">
+  <mat-spinner>
+</mat-spinner>
+
+</div>
+
+
+
+<div class="container"  *ngIf="!isLoading">
+
+  <table mat-table matSort
+         [dataSource]="tableData.reverse()"
+         class="mat-elevation-z8"
+         >
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell
+        *matHeaderCellDef mat-sort-header> Name </th>
+    <td mat-cell
+        *matCellDef="let element"> {{subStr(element.name)}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="comments">
+    <th mat-header-cell
+        *matHeaderCellDef mat-sort-header> Comments </th>
+    <td mat-cell
+        *matCellDef="let element"> {{subStr(element.comments)}} </td>
+  </ng-container>
+
+    <ng-container matColumnDef="details">
+    <th mat-header-cell
+        *matHeaderCellDef>  </th>
+    <td mat-cell
+        *matCellDef="let element"> <a (click)="showDetails((element.id))"> more details </a></td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="startTime">
+    <th mat-header-cell
+        *matHeaderCellDef mat-sort-header> Date </th>
+    <td mat-cell
+        *matCellDef="let element"> {{element.startTime}} </td>
+  </ng-container>
+
+
+
+  <tr mat-header-row
+      *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row
+      *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+</div>

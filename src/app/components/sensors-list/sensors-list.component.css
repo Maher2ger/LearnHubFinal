@@ -21,7 +21,16 @@
 }
 
 .container {
+    display:flex;
+    width: 90%;
+    height: 90%;
+    overflow: scroll;
+}
 
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 li {
@@ -46,4 +55,8 @@ right {
 
 .disabled {
     pointer-events:none;
+}
+
+app-sensors-list {
+    height: 100%;
 }

@@ -1,21 +1,7 @@
-const http = require('http');
-const app = require('./server/app');
-const {createServer} = require("http");
-const {Server} = require("socket.io");
-const sio = require("socket.io");
-
-const Recording = require('./server/models/recording');
-
-
-const port = process.env.PORT || 3500;
-const httpServer = createServer(app);
-httpServer.listen(port, function () {
-    console.log('Server works on port ' + port);
-})
-
 
 // Socket setup & pass server
 
+const sio = require("socket.io");
 const io = sio(httpServer, {
     origins: ["*"],
     handlePreflightRequest: (req, res) => {
@@ -33,6 +19,8 @@ const io = sio(httpServer, {
 let controlPanelId = null;  //ControlPanel Socket ID: null by default, will get a value
 // , when the control Panel is connected
 let isRecording = false;    //is true, when the conrolpanel is recording
+
+
 
 
 // ------ Socket connection init ----------
@@ -167,21 +155,6 @@ io.on('connection', (socket) => {   // when new client connect to the io socket
             recording.endTime = new Date();
             recording.duration = (recording.endTime - recording.startTime) / 1000;
 
-            (() => {   //this inline function to save the recording to the database
-                const newRecording = new Recording({
-                    name: recording.name,
-                    comments: recording.comments,
-                    startTime: recording.startTime,
-                    endTime: recording.endTime,
-                    creator: '625838703d57067d0af3cb0e',
-                    sensors: recording.sensors
-                });
-
-                newRecording.save()
-                    .catch(err => console.log(err));
-
-
-            })()
             io.emit('recording', recording);
         } else {
             socket.emit('S_notifacation',
@@ -216,16 +189,6 @@ io.on('connection', (socket) => {   // when new client connect to the io socket
                     color: 'text-warning'
                 });
         }
-    })
-
-    socket.on('getRecordingsDetails', (id) => {
-        Recording.findOne({
-            _id: id
-        }).then((data) => {
-            socket.emit('S_recordingDetails', data);
-        }).catch(err => {
-            console.log(err);
-        })
     })
 
 
