@@ -120,7 +120,8 @@ export class DashboardComponent implements OnInit {
 				this.socketservice.startRecording({
 					                                  recordingName: recordingName,
 					                                  comments     : this.recordingForm.value['comments'],
-					                                  sensors      : this.SensorsListComponent.myForm.value
+					                                  sensors      : this.SensorsListComponent.myForm.value,
+					                                  creator      : this.authService.getUserId()
 				                                  });
 				return;
 			}

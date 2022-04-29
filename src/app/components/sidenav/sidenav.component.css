@@ -1,1 +1,14 @@
+#welcome {
+    margin: 3px;
+    font-size: 15px;
+    color: midnightblue;
+}
 
+.sidenav {
+}
+
+.side-nav-element {
+    color: #f8f9f2;
+    font-weight: bold;
+    font-size: 17px;
+}

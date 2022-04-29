@@ -8,7 +8,7 @@
 <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
   <mat-card-title-group>
     <mat-card-title>Login</mat-card-title>
-    <mat-card-subtitle>goethe university</mat-card-subtitle>
+    <mat-card-subtitle>Goethe University</mat-card-subtitle>
   </mat-card-title-group>
   <mat-card-content>
 	  <div class="alert alert-danger" role="alert" *ngIf="alert">
@@ -37,7 +37,8 @@
   </mat-card-content>
 	<button mat-raised-button
 	        type="submit"
-	        color="primary">login
+	        color="primary"> <img id="loginImg"
+			src="assets/images/icons/login.png">login
     </button>
 	<div style="float: right;">
 		Don't have an account?

@@ -50,7 +50,8 @@ def sendSensorsList():
             'id': str(sensor.id),
             'name': sensor.name,
             'type': sensor.type,
-            'state': sensor.state
+            'state': sensor.state,
+            'category': sensor.catergory
         })
 
     print('R_sensors-infos sent to server')

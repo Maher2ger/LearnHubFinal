@@ -5,7 +5,8 @@ footer {
     grid-row-end: 4;
     z-index: 1;
     width:100%;
-    background-color: #ffeaea;
+    background-color: #d9dcd6;
+    padding: 3px;
 }
 
 
@@ -21,6 +22,8 @@ app-header {
 
 
 }
+
+
 
 
 .pageBody {
@@ -75,5 +78,5 @@ app-login {
 }
 
 app-sidenav {
-    background-color: white;
+    background-color: #748cab;
 }

@@ -126,6 +126,7 @@ io.on('connection', (socket) => {   // when new client connect to the io socket
                     sensors: [],
                     comments: data['comments'],
                     startTime: new Date(),
+                    creator: data['creator'],
                     endTime: ''
                 }
 
@@ -173,7 +174,7 @@ io.on('connection', (socket) => {   // when new client connect to the io socket
                     comments: recording.comments,
                     startTime: recording.startTime,
                     endTime: recording.endTime,
-                    creator: '625838703d57067d0af3cb0e',
+                    creator: recording.creator.replaceAll('"',''),
                     sensors: recording.sensors
                 });
 

@@ -7,7 +7,7 @@
     border: 1px solid red;
 }
 
-.mat-card {
+mat-card {
     background-color: #FFFAFA;
     height: 30px;
     margin:7px;
@@ -25,6 +25,7 @@
     width: 90%;
     height: 90%;
     overflow: scroll;
+
 }
 
 .center {
@@ -42,11 +43,13 @@ li {
 
 
 ul {
+    font-family: 'Saira Condensed' !important;
     display: block;
     width: 100%;
     padding-left: 4px;
     list-style-type: none;
     overflow: hidden;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
 }
 
 right {
@@ -60,3 +63,10 @@ right {
 app-sensors-list {
     height: 100%;
 }
+
+img {
+    margin-left: 6px;
+    height:20px;
+}
+
+

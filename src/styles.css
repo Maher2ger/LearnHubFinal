@@ -11,3 +11,16 @@
 
 html, body { height: 100%; width:100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.card-header-color {
+    background-color: #5c6b73;
+    color: white;
+    font-size: 13px !important;
+    font-family: 'Saira Condensed' !important;
+}
+
+.card-header {
+
+}
+
+

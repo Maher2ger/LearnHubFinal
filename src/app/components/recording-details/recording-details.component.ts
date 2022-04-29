@@ -27,7 +27,6 @@ export class RecordingDetailsComponent implements OnInit {
                                    .subscribe((data) => {
                                      this.recording = data;
                                      this.isLoading = false;
-                                     console.log(data.startTime.toString());
                                    })
     this.socketService.getRecordingsDetails(this.params['id']);
   }

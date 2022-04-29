@@ -10,6 +10,7 @@ import {
 import {
 	RecordingDetailsComponent
 } from "./components/recording-details/recording-details.component";
+import { AboutComponent } from './components/about/about.component';
 
 const routes: Routes = [
 	{path: '',redirectTo:"dashboard", pathMatch:"full"},
@@ -18,6 +19,7 @@ const routes: Routes = [
 	{path: 'signup', component: SignupComponent},
 	{path: 'recordings', component: RecordingsTabComponent,canActivate: [AuthGuard]},
 	{path: 'recordings/:id', component: RecordingDetailsComponent,canActivate: [AuthGuard]},
+	{path: 'about', component: AboutComponent},
 ]
 
 @NgModule({

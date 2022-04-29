@@ -2,7 +2,7 @@
 	<div class="controlArea m-1 p-1 rounded-2">
 		<div class="sensorsList rounded-3 m-3">
 		<h5
-				class="card-header"
+				class="card-header card-header-color"
 		><b>Sensorslist</b>  <p style="float: right;">#: {{sensorsList.length}}</p>	  </h5>
 			<app-sensors-list
 					[sensorsList]="sensorsList"
@@ -14,33 +14,35 @@
 		
 	<div class="controlDiv rounded-3 m-3">
 		<h5
-				class="card-header"
-		><b>Recording Info</b> 	  </h5>
+				class="card-header card-header-color"
+		><b>Recording Control</b> 	  </h5>
 		
-			<div class="stopwatch rounded-3 m-3">
-			<div id="circle">
-						<div class="circle-content">
-								<app-stopwatch></app-stopwatch>
+		<div>
+						<div  class="flex-center">
+								<app-stopwatch class="m-3"></app-stopwatch>
+								<div class="buttons m-3">
+								
 								<button
-										class="btn btn-primary m-1 w-100"
+										class="btn btn-primary m-1"
 										type="button"
 										(click)="startRecording()"
-										*ngIf="!isRecording"
-										[disabled]="!controlpanelConnected"
+										[disabled]="isRecording"
 								>
-								start recording</button>
+								<img
+										src="assets/images/icons/start.png"> start </button>
 			                    <button
-					                    class="btn btn-danger m-1 w-100"
+					                    class="btn btn-danger m-1"
 					                    type="button"
 					                    (click)="stopRecording()"
-					                    *ngIf="isRecording"
-			                    >stop</button>
-						</div>
-		</div>
+					                    [disabled]="!isRecording"
+			                    > <img
+					                    src="assets/images/icons/stop.png">
+				                    stop</button>
+									</div>
+		
 			</div>
-
-		<div class="recordingForm rounded-3 m-3">
-			<div class="container">
+						<div class="recordingForm rounded-3 m-3">
+			<div class="formContainer">
 							<form
 									#recordingForm="ngForm"
 							>
@@ -69,6 +71,8 @@
 
 			</div>
 		</div>
+
+		</div>
 		</div>
 		
 	
@@ -81,7 +85,7 @@
 <div class="sidenav-right">
 			<!-- Recording List -->
 				<div class="card recordings m-1 rounded-2">
-					  <h5 class="card-header"> <b>Recordings history</b>  <p
+					  <h5 class="card-header card-header-color"> <b>Recordings history</b>  <p
 							  style="float: right;
 					  padding:0px; margin:0px;"
 					  >#:
@@ -100,7 +104,7 @@
 			<div class="card terminal m-1 rounded-2">
 					  <h5
 							  style="color: white;"
-							  class="card-header"
+							  class="card-header card-header-color"
 					  ><b>Terminal</b> 	  </h5>
 					  <div
 							  class="card-body"

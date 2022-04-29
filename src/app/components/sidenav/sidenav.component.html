@@ -1,23 +1,27 @@
 <div class="sidenav">
     <li class="nav-item">
-        Welcome Maher
+        <p id="welcome">Welcome <b>{{userName}}</b></p>
       </li>
         <br>
     <mat-divider></mat-divider>
-
+	<li></li>
       <li class="nav-item">
-        <a routerLink="dashboard" class="nav-link" aria-current="page">
+        <a routerLink="dashboard" class="nav-link side-nav-element" aria-current="page">
             <i class="bi bi-house-fill"></i>          Dashboard
         </a>
       </li>
       <li>
-        <a routerLink="recordings" class="nav-link">
+        <a routerLink="recordings" class="nav-link side-nav-element">
 <i class="bi bi-record-circle"></i>          Recordings
         </a>
       </li>
+	<li></li> <li></li>
+			    <mat-divider></mat-divider>
+		
       <li>
-        <a href="#" class="nav-link ">
-<i class="bi bi-person"></i>          Profil
+        <a routerLink="about" class="nav-link side-nav-element">
+	       
+<i class="bi bi-person"></i>          about
         </a>
       </li>
 

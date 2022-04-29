@@ -48,6 +48,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { RecordingsTabComponent } from './components/recordings-tab/recordings-tab.component';
 import { RecordingDetailsComponent } from './components/recording-details/recording-details.component';
+import { AboutComponent } from './components/about/about.component';
 
 
 const config: SocketIoConfig = {
@@ -71,7 +72,8 @@ const config: SocketIoConfig = {
             SignupComponent,
             SidenavComponent,
             RecordingsTabComponent,
-            RecordingDetailsComponent],
+            RecordingDetailsComponent,
+            AboutComponent],
 	          imports                              : [
 		          BrowserModule,
 		          FormsModule,

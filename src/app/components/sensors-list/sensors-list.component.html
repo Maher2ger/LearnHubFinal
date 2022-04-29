@@ -11,8 +11,9 @@
 	<mat-card *ngFor="let sensor of sensorsList">
 		<ul>
 			<li class=""
-			    style="color:#b0a09d;float:left;width: 12%;"><span>{{sensor.id}}</span></li>
-			<li class="w-25"><span style="font-size:16px;color:black;"> <b>{{sensor.name}}</b></span></li>
+			    style="color:#b0a09d;float:left;width: 12%;"><span>{{sensor.id}} <img
+					src="assets/images/icons/{{sensor.category}}.png"> </span></li>
+			<li class="w-25"><span style="font-size:16px;color:black;">	    {{sensor.name}}</span></li>
 			<li class="w-25"><span style="color: grey;">{{sensor.type}}</span></li>
 			<li class="w-25"
 			    style="float:right;">

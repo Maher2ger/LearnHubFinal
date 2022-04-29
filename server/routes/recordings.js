@@ -11,7 +11,7 @@ router.post('/addNewRecording', (req, res) => {
         comments: req.body.comments,
         startTime: req.body.startTime,
         endTime: req.body.endTime,
-        creator: req.body.creator,
+        creator: req.body.creator.replaceAll('"',''),
         sensors: req.body.sensors
     });
 

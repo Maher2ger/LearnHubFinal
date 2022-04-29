@@ -7,13 +7,14 @@ class Sensor(tk.Frame):
     newId = itertools.count()
     sensorActiv = False
     sensorOn = False
-    def __init__(self,name, type,master=None):
+    def __init__(self,name, type,catergory,master=None):
         super().__init__(master)
         self.id = "s"+ str(next(self.newId))
         self.master = master
         self.name = name
         self.type = type
         self.state = "off"
+        self.catergory = catergory
         self.createSensor()
 
     def createSensor(self):
@@ -59,23 +60,14 @@ class Application(tk.Frame):
         self.control_frame = tk.Frame(self,bg="green", bd="2")
         self.create_widgets()
 
-        self.addNewSensor(Sensor('Sensor1', 'Alpha 290', master=self.sensors_frame))
-        self.addNewSensor(Sensor('Sensor2', 'Taliba 480', master=self.sensors_frame))
-        self.addNewSensor(Sensor('Sensor3', 'Toshina 3353', master=self.sensors_frame))
-        self.addNewSensor(Sensor('Sensor3', 'Toshina 3353', master=self.sensors_frame))
-        self.addNewSensor(Sensor('Sensor3', 'Toshina 3353', master=self.sensors_frame))
-        self.addNewSensor(Sensor('Sensor1', 'Alpha 290', master=self.sensors_frame))
-        self.addNewSensor(Sensor('Sensor2', 'Taliba 480', master=self.sensors_frame))
-        self.addNewSensor(Sensor('Sensor3', 'Toshina 3353', master=self.sensors_frame))
-        self.addNewSensor(Sensor('Sensor3', 'Toshina 3353', master=self.sensors_frame))
-        self.addNewSensor(Sensor('Sensor3', 'Toshina 3353', master=self.sensors_frame))
-        self.addNewSensor(Sensor('Sensor3', 'Toshina 3353', master=self.sensors_frame))
-        self.addNewSensor(Sensor('Sensor3', 'Toshina 3353', master=self.sensors_frame))
-        self.addNewSensor(Sensor('Sensor1', 'Alpha 290', master=self.sensors_frame))
-        self.addNewSensor(Sensor('Sensor2', 'Taliba 480', master=self.sensors_frame))
-        self.addNewSensor(Sensor('Sensor3', 'Toshina 3353', master=self.sensors_frame))
-        self.addNewSensor(Sensor('Sensor3', 'Toshina 3353', master=self.sensors_frame))
-        self.addNewSensor(Sensor('Sensor3', 'Toshina 3353', master=self.sensors_frame))
+        self.addNewSensor(Sensor('Camera G1', 'Alpha 290', 'camera' , master=self.sensors_frame))
+        self.addNewSensor(Sensor('Radio Camera', 'Sony 480','camera', master=self.sensors_frame))
+        self.addNewSensor(Sensor('micro 4HZ', 'Toshiba Rx5','microphone', master=self.sensors_frame))
+        self.addNewSensor(Sensor('HLP', 'Intel C-l200','temperature', master=self.sensors_frame))
+        self.addNewSensor(Sensor('Temp. Sensor', 'Google X-Project','pressure', master=self.sensors_frame))
+        self.addNewSensor(Sensor('sensor 1', 'XOEN 1600','sensor', master=self.sensors_frame))
+        self.addNewSensor(Sensor('sensor 2', 'XOEN 3690','sensor', master=self.sensors_frame))
+
 
     def create_widgets(self):
         self.sensors_frame.pack()

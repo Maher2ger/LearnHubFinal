@@ -70,36 +70,4 @@ export class SocketService {
 		this.socket.emit('B_stopRecording');
 	}
 
-	/*
-	 getDocument(id: string) {
-	 this.socket.emit('getDoc', id);
-	 }
-
-	 newDocument() {
-	 this.socket.emit('addDoc', { id: this.docId(), doc: '' });
-	 }
-
-	 editDocument(document: Document) {
-	 this.socket.emit('editDoc', document);
-	 }
-
-	 private docId() {
-	 let text = '';
-	 const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
-	 for (let i = 0; i < 5; i++) {
-	 text += possible.charAt(Math.floor(Math.random() * possible.length));
-	 }
-
-	 return text;
-	 }
-
-	 getSocketId() {
-	 return this.socket.ioSocket.id;}
-
-	 logout() {
-	 this.socket.emit('disconnect', this.socket.ioSocket.id);
-	 }
-
-	 */
 }

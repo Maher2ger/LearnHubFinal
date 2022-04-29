@@ -28,12 +28,13 @@ export class RecordingsTabComponent implements OnInit {
 			this.socketService.getRecordingsList(this.userId)
 			    .subscribe((data) => {
 				    for(let [key,recording] of data.entries()) {
+						var date = new Date(recording.startTime).toLocaleString();
 					    this.tableData.push({
 						                        position: key+1,
 						                        id: recording._id,
 						                        name     : recording.name,
 						                        comments : recording.comments,
-						                        startTime: recording.startTime,
+						                        startTime: date,
 
 					                        })
 				    }
@@ -44,7 +45,6 @@ export class RecordingsTabComponent implements OnInit {
 			    })
 		} else {
 			this.isLoading = false;
-			console.log('no recordings found');
 		}
 
 
@@ -73,6 +73,6 @@ export interface RecordingElement {
 	id: string;
 	name: string;
 	comments: string;
-	startTime: Date;
+	startTime: string;
 }
 

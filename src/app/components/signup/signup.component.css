@@ -23,3 +23,8 @@ mat-card {
     opacity: 0.6;
     width: 500px;
 }
+
+#signupImg {
+    margin-right:5px;
+    height: 25px;
+    filter: invert(100%);}
