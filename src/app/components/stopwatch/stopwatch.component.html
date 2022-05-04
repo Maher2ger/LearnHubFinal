@@ -1,12 +1,6 @@
 <div class="stopwatchText">
 	<section class="timer-counter-label">
-		<span class="time" *ngIf="counter; else elseBlock"> {{counter2}} </span>
+		<span class="time" *ngIf="counter; else elseBlock"> {{msToTime(counter)}} </span>
 		<ng-template #elseBlock> <span class="time">00:00:00.0</span></ng-template>
-	</section>
-	<section class="timer-button-container">
-		<button class="timer-button" (click)="startTimer()" hidden="true">
-  {{ startText }}
-</button>
-		<button class="timer-button" (click)="clearTimer()" hidden="true">Clear</button>
 	</section>
 </div>

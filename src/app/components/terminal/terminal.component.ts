@@ -1,6 +1,11 @@
+//commentation done
+
 import {Component, OnInit} from '@angular/core';
+import {Subscription} from "rxjs"
+
+// --- Services
 import {SocketService} from '../../services/socket.service';
-import {Subscription} from "rxjs";
+
 
 @Component({
 	           selector   : 'app-terminal',
@@ -8,22 +13,22 @@ import {Subscription} from "rxjs";
 	           styleUrls  : ['./terminal.component.css']
            })
 export class TerminalComponent implements OnInit {
-	errorsList: any[] = [];
-	//private _stateSub!: Subscription;
-	private _errSub!: Subscription;
+	notificationsList: any[] = [];     //save all notifications we get from server
+	private _notificationsSub!: Subscription; //listen to notifications come from server
 
 	constructor(public socketservice: SocketService) {
 	}
 
 	ngOnInit(): void {
-		this._errSub = this.socketservice.errors
-		                   .subscribe((err) => {
-			                   this.errorsList.push(err);
+		this._notificationsSub = this.socketservice.notification
+		                   .subscribe((notification) => {
+			                   console.log(notification);
+							   this.notificationsList.push(notification);
 		                   })
 	}
 
 	ngOnDestroy() {
-		this._errSub.unsubscribe();
+		this._notificationsSub.unsubscribe();
 	}
 
 }

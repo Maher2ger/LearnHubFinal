@@ -1,3 +1,6 @@
+//commentation done
+
+
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import { AuthService } from 'src/app/services/auth.service';
@@ -9,9 +12,11 @@ import {Subscription} from "rxjs";
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit, OnDestroy {
+  //_alertSub: listen to the errors when signup fails
   public _alertSub!: Subscription;
 
-  alert!:string| null;
+  alert!:string| null; //save the error message, when signup fails
+
 
   constructor(public authService: AuthService) { }
 
@@ -25,8 +30,11 @@ export class SignupComponent implements OnInit, OnDestroy {
   ngOnDestroy():void {
     this._alertSub.unsubscribe();
   }
+
   onSignup(form: NgForm): void {
+    //call the createUser function in the authService
     this.authService.createUser(
+        //pass the user credentials to the authService
         form.value.uname,
         form.value.uemail,
         form.value.uStudentNumber,

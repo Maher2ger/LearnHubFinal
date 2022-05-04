@@ -1,20 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import { SocketService } from 'src/app/services/socket.service';
+//commentation done
+
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {Subscription} from "rxjs";
+
+//---- services ---
+import { SocketService } from 'src/app/services/socket.service';
+import {ActivatedRoute, Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-recording-details',
   templateUrl: './recording-details.component.html',
   styleUrls: ['./recording-details.component.css']
 })
-export class RecordingDetailsComponent implements OnInit {
-  isLoading = true;
+export class RecordingDetailsComponent implements OnInit, OnDestroy{
+  isLoading = true;       //this var is needed to control the rendering of the spinner
+  recording!:any;
+  params!:any;    //url params
 
-  recording:any = {};
-  _RecordingDetailSub!: Subscription;
-  params!:any;
-  constructor(private activatedRoute: ActivatedRoute,
+  _RecordingDetailSub!: Subscription;   //listen to the recordingsdata from server
+  constructor(private activatedRoute: ActivatedRoute,   //this service to get the url params
               private socketService: SocketService,
               private router: Router) {
     this.activatedRoute.params.subscribe(params => {
@@ -36,10 +41,12 @@ export class RecordingDetailsComponent implements OnInit {
   }
 
   goBack () {
+    // navigate to the recordings page
     this.router.navigate(['recordings'])
   }
 
   millisToMinutesAndSeconds(startTime:any, endTime:any) {
+    //convert a Date Object to the format like this 5/1/2022, 3:13:30 PM
     let millis:number = Date.parse(endTime) - Date.parse(startTime);
     var minutes: number = Math.floor(millis / 60000);
     var seconds:any = ((millis % 60000) / 1000).toFixed(0);

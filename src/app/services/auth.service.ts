@@ -1,3 +1,6 @@
+//commentation done
+
+
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Subject, BehaviorSubject} from 'rxjs';
@@ -7,28 +10,28 @@ import {Router} from "@angular/router";
 	            providedIn: 'root'
             })
 
+
+//this servers is responsible for all login and signup processes
 export class AuthService {
-	private isAuthenticated = false;
-	private token!: any;
+	private isAuthenticated = false;     //is true, when the client is logged in
+	private token!: any;                 //user token: important for Authentication and Sessions
+	userName:any= "";                    //store the name of the client
+	userId!: string | null;              //store the userId (the same ID of the user in DB)
+
+	// ---------- Subscribers ------
 	//We use behaviorsubject to pass the AuthStatus to the other components
 	private authStatusListner = new BehaviorSubject<boolean>(false);
+	//alertListner: passes errors to the login and signup template when the process fails
 	private alertListner = new Subject<string>();
-	private tokenTimer!: any;
-	userName:any= "";
-
-	userId!: string | null;
 
 
-	constructor(private http: HttpClient, private router: Router) {
+	constructor(private http: HttpClient,
+	            private router: Router) {
 
 	}
 
-	getToken(): string {
-		return this.token;
-	}
-
-
-	getAuthStatusList() {
+	//   -----------------------  Subscriptions -------------------------
+	getAuthStatusListner() {
 		return this.authStatusListner.asObservable();
 	}
 
@@ -37,10 +40,29 @@ export class AuthService {
 	}
 
 
-	getUserId() {
-		return this.userId;
+
+	// ------------------ Service Variables  ---------------
+	getToken(): string {
+		return this.token;
 	}
 
+	getUserId():string {
+		if (this.userId) {
+			return this.userId;
+		}
+		return 'user-Id undefined';
+	}
+
+	getUserName() {
+		return this.userName;
+	}
+	getIsAuthenticated(): boolean {
+		return this.isAuthenticated;
+	}
+
+
+
+	// ---------------  signup functions -----------------------
 
 	createUser(name: string, email: string, studentNumber: string,
 	           password: string,) {
@@ -60,10 +82,8 @@ export class AuthService {
 		    })
 	}
 
-	getIsAuthenticated(): boolean {
-		return this.isAuthenticated;
-	}
 
+	// ---------------  login functions -----------------------
 
 	loginUser(email: string, password: string) {
 		const authData = {
@@ -78,67 +98,66 @@ export class AuthService {
 			    if (response.token && response.userId) {
 				    this.userId = response.userId;
 				    this.userName = response.userName;
+				    //after how many seconds should the session end
 				    const expiresIn = response.expiresIn;
-				    this.setAuthTimer(expiresIn);
 				    this.isAuthenticated = true;
-				    this.authStatusListner.next(true);
-				    const now = new Date();
+				    this.authStatusListner.next(true);  //pass the auth state to other components
+				    //expirationDate: claculate the time to end the session
 				    const expirationDate = (Date.now() + (expiresIn * 1000));
+					//save the auth infos in the localstorage
 				    this.saveAuthDataInLocalStorage(response.token, expirationDate, JSON.stringify(this.userId));
+					//redirect to dashboard page, when the client logged in successfully
 				    this.router.navigate(['/dashboard']);
 			    }
 		    }, error => {
+				//send the error to the login template
 			    this.alertListner.next(error.error.message);
 		    })
 	}
 
 	logoutUser() {
+		// reset the auth variables
 		this.token = null;
-		this.isAuthenticated = false;
-		this.authStatusListner.next(false);
-		this.router.navigate(['/login']);
-		//clearTimeout(this.tokenTimer);
-		this.clearAuthDataInLocalStorage();
 		this.userId = null;
-	}
-
-	getUserName() {
-
-
-		return this.userName;
+		this.isAuthenticated = false;
+		//inform the other components, that the user is logged out now
+		this.authStatusListner.next(false);
+		//redirect to the login page
+		this.router.navigate(['/login']);
+		//delete all auth infos from the localstorage
+		this.clearAuthDataInLocalStorage();
 	}
 
 	autoAuthUser() {
+		//this function will be called after refreshing the webpage
+		//when the user was authenticated befor refreshing and the session is not expired, the user
+		// will be authenticated automatically again
 		if (this.isAuthenticated) {
+			//if the client is authenticated, just do no thing
 			return
 		} else {
+			//if the user is not authenticated, get the auth infos from the localstorage
 			const authInfos = this.getAuthDataFromLocalStorage();
 			if (!authInfos) {
+				//if there is no auth in the localstorage, then return nothing
 				return;
 			}
-			let now = new Date();
+			//calculate new expiration date
 			const expiresIn = parseInt(authInfos.expirationDate) - Date.now();
 			if (expiresIn > 0) {
+				//if the expiration date after the actuall point in time, it means the session
+				// is not expired and the user can be authenticated
 				this.token = authInfos.token;
-				this.isAuthenticated = true;
-				this.setAuthTimer(expiresIn);
 				this.userId = authInfos.userId;
 				this.userName = authInfos.userName;
+				this.isAuthenticated = true;
 				this.authStatusListner.next(true);
 			}
 		}
 
 	}
 
-	////JWT Token 
-
-	private setAuthTimer(duration: number) {
-		//set time to logout when the token is expired
-		/*
-		 this.tokenTimer = setTimeout(() => {
-		 this.logoutUser();
-		 }, duration * 1000) */
-	}
+	//// ---------------------  localStorage functions -------------------
 
 	private saveAuthDataInLocalStorage(token: string, expiresIn: number,
 	                                   userId: string) {

@@ -1,6 +1,7 @@
 // source:
 // https://medium.com/web-developer/create-a-stopwatch-ionic-3-angular-5-d45bc0358626
 
+
 import {Component, OnInit} from '@angular/core';
 
 @Component({
@@ -9,11 +10,9 @@ import {Component, OnInit} from '@angular/core';
 	           styleUrls  : ['./stopwatch.component.css']
            })
 export class StopwatchComponent implements OnInit {
-	counter2: string = "0";
-	counter: any;
+	counter: any;            //Timer var
 	timerRef!:any;
 	running: boolean = false;
-	startText = 'Start';
 
 	ngOnInit() {
 
@@ -22,16 +21,11 @@ export class StopwatchComponent implements OnInit {
 	startTimer() {
 		this.running = !this.running;
 		if (this.running) {
-			this.startText = 'Stop';
 			const startTime = Date.now() - (this.counter || 0);
 			this.timerRef = setInterval(() => {
 				this.counter = Date.now() - startTime;
-				this.counter2 = this.msToTime(this.counter);
-
-
 			});
 		} else {
-			this.startText = 'Resume';
 			clearInterval(this.timerRef);
 		}
 	}
@@ -50,9 +44,7 @@ export class StopwatchComponent implements OnInit {
 
 	clearTimer() {
 		this.running = false;
-		this.startText = 'Start';
 		this.counter = undefined;
-		this.counter2 = "0";
 
 		clearInterval(this.timerRef);
 	}

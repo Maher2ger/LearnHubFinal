@@ -1,64 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
-#circle {
-    background-color: white;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid grey;
-    border-radius: 50%;
-    position: relative;
-    width: calc(100vw - 89vw);
-    height: calc(100vw - 89vw);
-
-}
-
-
-.circle-content {
-    display: flex;
-    flex-direction: column;
-    font-size: 30px;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-#terminal {
-    margin-left: 8px;
-    margin-top: 0px;
-    height: 48%;
-    overflow-y: scroll;
-    border: 1px solid grey;
-    width: 99%;
-}
-
-
-
-
-
-.center {
-    display:flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-
-
-
-
-
 .dashboard {
     display: grid;
     grid-template-rows: 10% 40% 40% 10%;
@@ -114,18 +54,6 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-#cardBodySensors {
-    overflow-y: scroll;
-}
-
-.stopwatch {
-    margin:5px;
-    display:flex;
-    justify-content: center;
-    align-content: center;
-
-
-}
 
 .recordingForm {
 }
@@ -200,3 +128,26 @@ button {
 
 }
 
+.note {
+    width: 97%;
+    margin:9px;
+    color: grey;
+    font-size: 11px;
+    align-items: center;
+    align-content: center;
+
+}
+
+.shadow {
+    -moz-box-shadow:    inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow:         inset 0 0 10px #000000;
+}
+
+li {
+    padding:-3px;
+    margin:-7px;
+}
+
+ul, ol {
+}

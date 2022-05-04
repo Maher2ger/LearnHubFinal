@@ -5,7 +5,7 @@ const router = express.Router();
 module.exports = router;
 
 router.post('/addNewRecording', (req, res) => {
-
+    //save new recording to the db
     const newRecording = new Recording( {
         name: req.body.name,
         comments: req.body.comments,
@@ -19,9 +19,10 @@ router.post('/addNewRecording', (req, res) => {
         .then((result)=> {
             res.status(200).json({
                 message: 'Recording saved successfully',
-                result: result
+                result: result   //return the recording
             })
-        })
+        }).catch(err => {console.log(err);})
+
 })
 
 router.post("", (req,res)=> {

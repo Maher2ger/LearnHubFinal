@@ -1,5 +1,16 @@
 <div class="dashboard">
+	<div class="note shadow rounded-3">
+		<ul>
+			<li>select the sensors you want record from</li>
+			<li>give the recording a name und write comments if needed</li>
+			<li>click on start to record from the selected sensors</li>
+		</ul>
+	</div>
+	<!--                           Middle Section                       -->
+	
 	<div class="controlArea m-1 p-1 rounded-2">
+		
+		<!--  left: sensorsList section-->
 		<div class="sensorsList rounded-3 m-3">
 		<h5
 				class="card-header card-header-color"
@@ -12,13 +23,14 @@
 				</app-sensors-list>
 		</div>
 		
-	<div class="controlDiv rounded-3 m-3">
+		<!--  right: recording and control section  -->
+		<div class="controlDiv rounded-3 m-3">
 		<h5
 				class="card-header card-header-color"
 		><b>Recording Control</b> 	  </h5>
 		
 		<div>
-						<div  class="flex-center">
+						<div class="flex-center">
 								<app-stopwatch class="m-3"></app-stopwatch>
 								<div class="buttons m-3">
 								
@@ -29,20 +41,22 @@
 										[disabled]="isRecording"
 								>
 								<img
-										src="assets/images/icons/start.png"> start </button>
+										src="assets/images/icons/start.png"
+								> start </button>
 			                    <button
 					                    class="btn btn-danger m-1"
 					                    type="button"
 					                    (click)="stopRecording()"
 					                    [disabled]="!isRecording"
 			                    > <img
-					                    src="assets/images/icons/stop.png">
+					                    src="assets/images/icons/stop.png"
+			                    >
 				                    stop</button>
 									</div>
 		
 			</div>
 						<div class="recordingForm rounded-3 m-3">
-			<div class="formContainer">
+							<div class="a">
 							<form
 									#recordingForm="ngForm"
 							>
@@ -84,19 +98,19 @@
 
 <div class="sidenav-right">
 			<!-- Recording List -->
-				<div class="card recordings m-1 rounded-2">
+			<div class="card recordings m-1 rounded-2">
 					  <h5 class="card-header card-header-color"> <b>Recordings history</b>  <p
 							  style="float: right;
 					  padding:0px; margin:0px;"
 					  >#:
-						  {{recordingsList.length}}</p>
+						  {{localRecordingsList.length}}</p>
 					  </h5>
 					  <div
 							  class="card-body"
 							  id="recordingsCard"
 					  >
 
-						<app-recordings-list [recordingsList]="recordingsList"></app-recordings-list>
+						<app-recordings-list [recordingsList]="localRecordingsList"></app-recordings-list>
 						  </div>
 				</div>
 			

@@ -12,7 +12,7 @@
       </li>
       <li>
         <a routerLink="recordings" class="nav-link side-nav-element">
-<i class="bi bi-record-circle"></i>          Recordings
+	<i class="bi bi-record-circle"></i>          Recordings
         </a>
       </li>
 	<li></li> <li></li>
@@ -24,6 +24,14 @@
 <i class="bi bi-person"></i>          about
         </a>
       </li>
+	<div class="logout">
+		 <button id="logoutButton"
+		         type="button"
+		         class="btn btn-warning"
+		         (click)="logout()"
+		         *ngIf="userIsAuthenticated">Logout</button>
 
+	</div>
+	
 </div>
 

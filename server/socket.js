@@ -37,7 +37,7 @@ io.on('connection', (socket) => {   // when new client connect to the io socket
     if (socket.handshake.headers.type == 'controlpanel') {
         controlPanelId = socket.id;     //store the controlpanel socket ID in the controlPanelId variable
         socket.broadcast.emit("controlpanelConnected", true);
-        socket.broadcast.emit('S_notifacation',
+        socket.broadcast.emit('S_notification',
             {
                 title: "ControlPanel",
                 message: "controlpanel connected",
@@ -61,7 +61,7 @@ io.on('connection', (socket) => {   // when new client connect to the io socket
             socket.broadcast.emit("controlpanelConnected", false);
             isRecording = false;
             socket.broadcast.emit("isRecording", false);
-            socket.broadcast.emit('S_notifacation',
+            socket.broadcast.emit('S_notification',
                 {
                     title: "ControlPanel",
                     message: "controlpanel disconnected",
@@ -81,7 +81,7 @@ io.on('connection', (socket) => {   // when new client connect to the io socket
             if (controlPanelId) {
                 socket.broadcast.emit('S_sensorsListData', data);
             } else {
-                socket.emit('S_notifacation',
+                socket.emit('S_notification',
                     {
                         title: "",
                         message: "ControlPanel not connected!",
@@ -101,7 +101,7 @@ io.on('connection', (socket) => {   // when new client connect to the io socket
                 io.to(controlPanelId).emit('S_startRecording', data['sensors']);
                 isRecording = true;
                 socket.emit('isRecording', true);
-                socket.emit('S_notifacation',
+                socket.emit('S_notification',
                     {
                         title: "start-recording",
                         message: "recording started",
@@ -125,7 +125,7 @@ io.on('connection', (socket) => {   // when new client connect to the io socket
 
 
             } else {
-                socket.emit('S_notifacation',
+                socket.emit('S_notification',
                     {
                         title: "start-recording",
                         message: "start recording is not possible, ControlPanel is not connected!",
@@ -145,7 +145,7 @@ io.on('connection', (socket) => {   // when new client connect to the io socket
             io.to(controlPanelId).emit('S_stopRecording');
             isRecording = false;
             socket.emit('isRecording', false);
-            socket.emit('S_notifacation',
+            socket.emit('S_notification',
                 {
                     title: "Stop-recording",
                     message: "Recording has been stopped",
@@ -157,7 +157,7 @@ io.on('connection', (socket) => {   // when new client connect to the io socket
 
             io.emit('recording', recording);
         } else {
-            socket.emit('S_notifacation',
+            socket.emit('S_notification',
                 {
                     title: "Stop-Recording",
                     message: "stop recording is not possible, ControlPanel not connected!",
@@ -172,7 +172,7 @@ io.on('connection', (socket) => {   // when new client connect to the io socket
     socket.on('B_getSensorsList', () => {
         if (controlPanelId) {   //check, if controlpanel is connected
             io.to(controlPanelId).emit("S_getSensorsList"); // if connected, get the sensors List from controlpanel
-            socket.emit('S_notifacation',
+            socket.emit('S_notification',
                 {
                     title: "Sensorslist",
                     message: "Sensorslist is loaded",
@@ -181,7 +181,7 @@ io.on('connection', (socket) => {   // when new client connect to the io socket
                 });
         } else {
             io.emit("controlpanelConnected", false)
-            socket.emit('S_notifacation',
+            socket.emit('S_notification',
                 {
                     title: "Sensorslist",
                     message: "Sensorslist cannot be loaded, ControlPanel not connected!",

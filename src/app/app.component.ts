@@ -1,14 +1,9 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {Subscription} from 'rxjs';
-import {Sensor} from './models/sensor.model';
-import {SocketService} from './services/socket.service';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import {StopwatchComponent} from "./components/stopwatch/stopwatch.component";
-import {
-	SensorsListComponent
-} from "./components/sensors-list/sensors-list.component";
+//commentation done
 
-import {Recording} from "./models/recording.model"
+import {Component, OnInit} from '@angular/core';
+import {Subscription} from 'rxjs';
+
+// --- Services
 import {AuthService} from "./services/auth.service";
 
 
@@ -18,10 +13,9 @@ import {AuthService} from "./services/auth.service";
 	           styleUrls  : ['./app.component.css']
            })
 export class AppComponent implements OnInit {
-	//access the child comp StopwatchComponent
+	//_authSub: listen to the client state if the client is authenticated or not
 	private _authSub!: Subscription;
 	userIsAuthenticated: boolean = false;
-	recordingsList: Recording[] = [];
 
 
 
@@ -35,7 +29,7 @@ export class AppComponent implements OnInit {
 
 	ngOnInit() {
 		this.authService.autoAuthUser();
-		this._authSub = this.authService.getAuthStatusList()
+		this._authSub = this.authService.getAuthStatusListner()
 		                    .subscribe((isAuthenticated) => {
 			                    this.userIsAuthenticated = isAuthenticated;
 		                    })

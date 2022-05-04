@@ -5,10 +5,23 @@
 }
 
 .sidenav {
+    height: 100%;
 }
 
 .side-nav-element {
     color: #f8f9f2;
     font-weight: bold;
     font-size: 17px;
+}
+
+.logout {
+    width:200px;
+    margin: 5px;
+    padding:5px;
+    position: absolute;
+    bottom: 5%;
+}
+
+#logoutButton {
+    width: 90%;
 }

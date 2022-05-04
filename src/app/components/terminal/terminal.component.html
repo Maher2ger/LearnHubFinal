@@ -1,15 +1,15 @@
 <div class="terminal">
 	<div class="notification p-1"
-	     *ngFor="let error of errorsList">
+	     *ngFor="let notification of notificationsList">
 		<ul>
 			<li class="width90">
-				<span class="error-message font"><span class="font" [ngClass]="[error.color]"><b>{{error.title}}:
+				<span class="error-message font"><span class="font" [ngClass]="[notification.color]"><b>{{notification.title}}:
 					</b></span>
-						{{error.message}}
+						{{notification.message}}
 				</span>
 			</li>
 			<li style="width: 60px;float: right;text-align: right">
-				<small class="timestamp">{{error.timestamp}}</small>
+				<small class="timestamp">{{notification.timestamp}}</small>
 </li>
 		</ul>
 

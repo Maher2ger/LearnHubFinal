@@ -29,6 +29,8 @@
     <td mat-cell *matCellDef="let element"> {{element.position}} </td>
   </ng-container>
 
+  <!-- name Column -->
+
   <ng-container matColumnDef="name">
     <th mat-header-cell
         *matHeaderCellDef mat-sort-header> Name </th>
@@ -36,13 +38,15 @@
         *matCellDef="let element"> {{subStr(element.name)}} </td>
   </ng-container>
 
-  <!-- Name Column -->
+  <!-- comments Column -->
   <ng-container matColumnDef="comments">
     <th mat-header-cell
         *matHeaderCellDef mat-sort-header> Comments </th>
     <td mat-cell
         *matCellDef="let element"> {{subStr(element.comments)}} </td>
   </ng-container>
+
+  <!-- Details Column -->
 
     <ng-container matColumnDef="details">
     <th mat-header-cell
@@ -51,7 +55,7 @@
         *matCellDef="let element"> <a (click)="showDetails((element.id))"> more details </a></td>
   </ng-container>
 
-  <!-- Weight Column -->
+  <!-- Date Column -->
   <ng-container matColumnDef="startTime">
     <th mat-header-cell
         *matHeaderCellDef mat-sort-header> Date </th>
@@ -59,7 +63,7 @@
         *matCellDef="let element"> {{element.startTime}} </td>
   </ng-container>
 
-
+  <!-- header -->
 
   <tr mat-header-row
       *matHeaderRowDef="displayedColumns"></tr>

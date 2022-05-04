@@ -1,7 +1,12 @@
+//commentation done
+
 import {Component, OnInit} from '@angular/core';
-import {SocketService} from 'src/app/services/socket.service';
 import {Subscription} from 'rxjs';
+
+// --- Services --
 import {AuthService} from "../../../services/auth.service";
+import {SocketService} from '../../../services/socket.service';
+
 
 @Component({
 	           selector   : 'app-header',
@@ -9,7 +14,9 @@ import {AuthService} from "../../../services/auth.service";
 	           styleUrls  : ['./header.component.css']
            })
 export class HeaderComponent implements OnInit {
-	private _stateSub!: Subscription;
+	//_ControlPanelstateSub: listen to the state of the controlpanel (connected or not)
+	private _ControlPanelstateSub!: Subscription;
+	//_authSub: listen to the client state if the client is authenticated or not
 	private _authSub!: Subscription;
 
 	userIsAuthenticated: boolean = false;
@@ -20,26 +27,23 @@ export class HeaderComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this._stateSub = this.socketservice.controlpanelConnected
+		this._ControlPanelstateSub = this.socketservice.controlpanelConnected
 		                     .subscribe((state: boolean) => {
-			                     this.controlpanelConnected = state;
-		                     })
+								 this.controlpanelConnected = state;
+		                     });
 
-		this._authSub = this.authService.getAuthStatusList()
+		this._authSub = this.authService.getAuthStatusListner()
 		                    .subscribe((isAuthenticated) => {
 			                    this.userIsAuthenticated = isAuthenticated;
 		                    })
 	}
 
 	ngOnDestroy(): void {
-		this._stateSub.unsubscribe();
+		this._ControlPanelstateSub.unsubscribe();
 		this._authSub.unsubscribe();
 
 	}
 
-	logout(): void {
-		this.authService.logoutUser();
-	}
 
 
 }

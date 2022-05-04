@@ -1,3 +1,5 @@
+//commentation done
+
 import {HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {Injectable} from "@angular/core";
 import { AuthService } from '../auth.service';
@@ -10,6 +12,8 @@ export class AuthInterceptor implements HttpInterceptor {
 	{
 	}
 	intercept(req: HttpRequest<any>, next: HttpHandler) {
+		//this function adds the user token to every HTTP-Request-Header
+		//the user token is important to confirm that the user is authenticated
 		const authToken = this.authService.getToken();
 		const authRequest = req.clone({
 			                              headers: req.headers.set('Authorization', 'Bearer ' + authToken)
