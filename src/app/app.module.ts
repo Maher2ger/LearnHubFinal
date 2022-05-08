@@ -1,12 +1,16 @@
+// ----- modules import
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-
-import {environment} from 'src/environments/environment';
 import {SocketIoModule, SocketIoConfig} from 'ngx-socket-io';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {AngularSvgIconModule} from 'angular-svg-icon';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {AppRoutingModule} from "./app.routing.module";
+
 
 // ----- Angualar material Imports
 import {MatToolbarModule} from "@angular/material/toolbar";
@@ -15,13 +19,13 @@ import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
-import { MatDividerModule } from '@angular/material/divider';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
-//components
+// --------- components
 import {TerminalComponent} from './components/terminal/terminal.component';
 import {StopwatchComponent} from './components/stopwatch/stopwatch.component';
 import {
@@ -30,26 +34,23 @@ import {
 import {
 	RecordingsListComponent
 } from './components/recordings-list/recordings-list.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {MatChipsModule} from '@angular/material/chips';
-import {MatFormFieldModule} from "@angular/material/form-field";
+
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './components/header/header/header.component';
+import {DashboardComponent} from './components/dashboard/dashboard.component';
+import {LoginComponent} from './components/login/login.component';
+import {SignupComponent} from './components/signup/signup.component';
+import {SidenavComponent} from './components/sidenav/sidenav.component';
+import {RecordingsTabComponent} from './components/recordings-tab/recordings-tab.component';
+import {
+	RecordingDetailsComponent
+} from './components/recording-details/recording-details.component';
+import {AboutComponent} from './components/about/about.component';
 
-//modules import
-import {AppRoutingModule} from "./app.routing.module";
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { LoginComponent } from './components/login/login.component';
-import { SignupComponent } from './components/signup/signup.component';
-import {AuthInterceptor} from "./services/interceptors/auth.interceptor";
 
 //inceptors
+import {AuthInterceptor} from "./services/interceptors/auth.interceptor";
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import { SidenavComponent } from './components/sidenav/sidenav.component';
-import { RecordingsTabComponent } from './components/recordings-tab/recordings-tab.component';
-import { RecordingDetailsComponent } from './components/recording-details/recording-details.component';
-import { AboutComponent } from './components/about/about.component';
-
 
 const config: SocketIoConfig = {
 	url: 'http://localhost:3500', options: {
@@ -60,21 +61,21 @@ const config: SocketIoConfig = {
 };
 
 @NgModule({
-	          declarations                         : [
+	          declarations: [
 		          AppComponent,
 		          HeaderComponent,
 		          TerminalComponent,
 		          StopwatchComponent,
 		          SensorsListComponent,
 		          RecordingsListComponent,
-            DashboardComponent,
-            LoginComponent,
-            SignupComponent,
-            SidenavComponent,
-            RecordingsTabComponent,
-            RecordingDetailsComponent,
-            AboutComponent],
-	          imports                              : [
+		          DashboardComponent,
+		          LoginComponent,
+		          SignupComponent,
+		          SidenavComponent,
+		          RecordingsTabComponent,
+		          RecordingDetailsComponent,
+		          AboutComponent],
+	          imports     : [
 		          BrowserModule,
 		          FormsModule,
 		          ReactiveFormsModule,
@@ -98,8 +99,13 @@ const config: SocketIoConfig = {
 		          MatTableModule,
 		          MatSortModule,
 		          MatProgressSpinnerModule],
-	          providers                            : [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
-	          bootstrap                            : [AppComponent]
+	          providers   : [
+		          {
+			          provide: HTTP_INTERCEPTORS,
+			          useClass: AuthInterceptor,
+			          multi: true
+		          }],
+	          bootstrap   : [AppComponent]
           })
 export class AppModule {
 }

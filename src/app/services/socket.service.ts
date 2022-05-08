@@ -56,6 +56,7 @@ export class SocketService {
 		return this.findRecordingInDB.asObservable();
 	}
 
+
 	getRecordingsListForOneClient(userId: string) {
 		//fetch the recording of one user from the database
 		return this.http.post<[any]>('http://localhost:3500/recordings', {creator: userId});

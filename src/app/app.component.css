@@ -27,6 +27,7 @@ app-header {
 
 
 .pageBody {
+    margin-top: -1px;
     display:inline-grid;
     grid-template-rows:100%;
     grid-template-columns:200px auto;

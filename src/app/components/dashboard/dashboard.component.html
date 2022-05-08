@@ -1,5 +1,5 @@
 <div class="dashboard">
-	<div class="note shadow rounded-3">
+	<div class="note shadow rounded-3 m-1 p-1">
 		<ul>
 			<li>select the sensors you want record from</li>
 			<li>give the recording a name und write comments if needed</li>
@@ -8,10 +8,10 @@
 	</div>
 	<!--                           Middle Section                       -->
 	
-	<div class="controlArea m-1 p-1 rounded-2">
+	<div class="controlArea m-1 p-1 rounded-3">
 		
 		<!--  left: sensorsList section-->
-		<div class="sensorsList rounded-3 m-3">
+		<div class="sensorsList rounded-3 m-3" [class.opacity]="isRecording">
 		<h5
 				class="card-header card-header-color"
 		><b>Sensorslist</b>  <p style="float: right;">#: {{sensorsList.length}}</p>	  </h5>
