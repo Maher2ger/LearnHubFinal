@@ -31,7 +31,6 @@ module.exports = (socket) => {   // when new client connect to the io socket
             });
         //wait 50 ms, until the control-panel connection has been established
         setTimeout(() => {
-            console.log("activated");
             socket.to(controlPanelId).emit("S_getSensorsList");        //ask for the sensorsList from the controlpanel
         }, 500);
     }
