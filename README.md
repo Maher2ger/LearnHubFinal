@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ***
 
-###How to start this App?
+### How to start this App?
 
 1. download or clone the app from GitHub (https://github.com/Maher2ger/LearnHubFinal) and extract the zip file
 2. navigate to the app folder (LearnHubFinal)
