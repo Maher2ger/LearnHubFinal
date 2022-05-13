@@ -24,7 +24,7 @@
 		</div>
 		
 		<!--  right: recording and control section  -->
-		<div class="controlDiv rounded-3 m-3">
+		<div class="controlDiv rounded-3 m-3" [class.opacity]="sensorsList.length == 0">
 		<h5
 				class="card-header card-header-color"
 		><b>Recording Control</b> 	  </h5>
