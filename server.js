@@ -23,6 +23,12 @@ httpServer.listen(port, function () {
 // Socket setup & pass server
 
 const io = sio(httpServer, {
+  cors: {
+  origin: "*",
+    methods: ["GET", "POST"]
+}
+  /*
+  {
     origins: ["*"],   //accept socket connections from any origin
     handlePreflightRequest: (req, res) => {
         //important to not be blocked from the browser
@@ -33,8 +39,9 @@ const io = sio(httpServer, {
             "Access-Control-Allow-Credentials": true
         });
         res.end();
-    }
-});
+    }*/
+}
+);
 
 
 

@@ -6,6 +6,7 @@
 
 .sidenav {
     height: 100%;
+    padding: 0px;
 }
 
 .side-nav-element {
@@ -25,3 +26,17 @@
 #logoutButton {
     width: 90%;
 }
+
+
+ul {
+  left: 1px;
+  width: 98%;
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+
+.space {
+  height: 30px;
+}
+

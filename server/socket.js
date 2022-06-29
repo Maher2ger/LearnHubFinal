@@ -29,10 +29,10 @@ module.exports = (socket) => {   // when new client connect to the io socket
                 timestamp: new Date().toTimeString().split(' ')[0],
                 color: 'text-success'
             });
-        //wait 50 ms, until the control-panel connection has been established
+        //wait 100 ms, until the control-panel connection has been established
         setTimeout(() => {
-            socket.to(controlPanelId).emit("S_getSensorsList");        //ask for the sensorsList from the controlpanel
-        }, 500);
+            socket.emit("S_getSensorsList");        //ask for the sensorsList from the controlpanel
+        }, 100);
     }
 
     if (controlPanelId) {
