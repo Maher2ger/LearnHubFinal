@@ -1,10 +1,10 @@
 <div class="sidenav">
-    <li class="nav-item">
-        <p id="welcome">Welcome <b>{{userName}}</b></p>
+  <ul>
+      <li class="nav-item">
+          <p id="welcome">Welcome <b>{{userName}}</b></p>
       </li>
-        <br>
-    <mat-divider></mat-divider>
-	<li></li>
+      <li class="space"></li>
+      <li><mat-divider></mat-divider></li>
       <li class="nav-item">
         <a routerLink="dashboard" class="nav-link side-nav-element" aria-current="page">
             <i class="bi bi-house-fill"></i>          Dashboard
@@ -15,15 +15,16 @@
 	<i class="bi bi-record-circle"></i>          Recordings
         </a>
       </li>
-	<li></li> <li></li>
-			    <mat-divider></mat-divider>
-		
-      <li>
+      <li><mat-divider></mat-divider></li>
+    <li class="space"></li>
+
+    <li>
         <a routerLink="about" class="nav-link side-nav-element">
-	       
+
 <i class="bi bi-person"></i>          about
         </a>
       </li>
+  </ul>
 	<div class="logout">
 		 <button id="logoutButton"
 		         type="button"
@@ -32,6 +33,6 @@
 		         *ngIf="userIsAuthenticated">Logout</button>
 
 	</div>
-	
+
 </div>
 
