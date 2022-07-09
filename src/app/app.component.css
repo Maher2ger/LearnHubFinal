@@ -26,7 +26,7 @@ app-header {
 
 
 
-.pageBody {
+.body {
     margin-top: -1px;
     display:inline-grid;
     grid-template-rows:100%;
@@ -43,12 +43,11 @@ router-outlet {
 
 app-dashboard {
     height:100%;
-
     grid-column-start: 2;
     grid-column-end: 3;
 }
 
-.body {
+.wrapper {
     height:100%;
     width:100%;
     display: grid;
@@ -71,9 +70,8 @@ app-login {
     grid-column-end: 3;
 }
 
-.dashboard {
+.content {
     height:100%;
-
     grid-column-start: 2;
     grid-column-end: 3;
 }

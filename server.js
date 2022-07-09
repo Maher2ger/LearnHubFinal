@@ -1,16 +1,11 @@
 //commentation done
-
-const http = require('http');
-//Import the app file with all routes and middlewares and routes
+//Import the app file with all routes and middlewares
 const app = require('./server/app');
+
 //import socket modules
 const {createServer} = require("http");
-const {Server} = require("socket.io");
 const sio = require("socket.io");
 const socketConf = require("./server/socket");
-
-// MongoDB Schema
-const Recording = require('./server/models/recording');
 
 //Server creation
 const port = process.env.PORT || 3500;
@@ -21,7 +16,6 @@ httpServer.listen(port, function () {
 
 
 // Socket setup & pass server
-
 const io = sio(httpServer, {
     origins: ["*"],   //accept socket connections from any origin
     handlePreflightRequest: (req, res) => {
@@ -36,9 +30,5 @@ const io = sio(httpServer, {
     }
 });
 
-
-
 // ------ Socket connection init ----------
-
-
 io.on('connection', socketConf);

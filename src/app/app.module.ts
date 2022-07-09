@@ -11,7 +11,6 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {AppRoutingModule} from "./app.routing.module";
 
-
 // ----- Angualar material Imports
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatSnackBarModule} from '@angular/material/snack-bar';
@@ -47,8 +46,7 @@ import {
 } from './components/recording-details/recording-details.component';
 import {AboutComponent} from './components/about/about.component';
 
-
-//inceptors
+// -------  inceptors
 import {AuthInterceptor} from "./services/interceptors/auth.interceptor";
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 

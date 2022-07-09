@@ -86,7 +86,12 @@ export class DashboardComponent implements OnInit {
 					                     duration: 3000
 				                     });
 			                     } else {
-				                     this._snackBar.open('Control Panel is Connected', '', {
+									 //call the sensorslist from the server
+									 setTimeout(() => {
+										 this.socketservice.getSensorsListFromServer();
+									 },500); //wait 0.5 till the connection with controlpanel
+				                     // has been established
+									 this._snackBar.open('Control Panel is Connected', '', {
 					                     duration: 3000
 				                     });
 			                     }

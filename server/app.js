@@ -16,8 +16,6 @@ const recordingRoutes = require('./routes/recordings');
 
 const app = express();    //init the app
 
-
-
 ////connect to mongoDB
 mongoose.connect("mongodb+srv://maher2:ababab@cluster0.rtgkm.mongodb.net/learnHub?retryWrites=true&w=majority")
     .then(() => console.log('MongoDB connected successfully!'))

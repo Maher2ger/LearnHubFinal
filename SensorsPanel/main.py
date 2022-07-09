@@ -44,6 +44,7 @@ def stopRecording():
 
 @sio.on('S_getSensorsList')
 def sendSensorsList():
+    print('gottttttttttttttttttttt')
     sensorsList = []
     for sensor in app.getSensorsList():
         sensorsList.append({

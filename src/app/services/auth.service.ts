@@ -17,13 +17,11 @@ export class AuthService {
 	private token!: any;                 //user token: important for Authentication and Sessions
 	userName:any= "";                    //store the name of the client
 	userId!: string | null;              //store the userId (the same ID of the user in DB)
-
 	// ---------- Subscribers ------
 	//We use behaviorsubject to pass the AuthStatus to the other components
 	private authStatusListner = new BehaviorSubject<boolean>(false);
 	//alertListner: passes errors to the login and signup template when the process fails
 	private alertListner = new Subject<string>();
-
 
 	constructor(private http: HttpClient,
 	            private router: Router) {
@@ -38,8 +36,6 @@ export class AuthService {
 	getAlertListner() {
 		return this.alertListner.asObservable();
 	}
-
-
 
 	// ------------------ Service Variables  ---------------
 	getToken(): string {
@@ -60,8 +56,6 @@ export class AuthService {
 		return this.isAuthenticated;
 	}
 
-
-
 	// ---------------  signup functions -----------------------
 
 	createUser(name: string, email: string, studentNumber: string,
@@ -81,7 +75,6 @@ export class AuthService {
 			    //this.router.navigate(['/signup']);
 		    })
 	}
-
 
 	// ---------------  login functions -----------------------
 

@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
 	controlpanelConnected: boolean = false;
 
 	constructor(public socketservice: SocketService,
-	            public authService: AuthService,) {
+	            public authService: AuthService) {
 	}
 
 	ngOnInit(): void {

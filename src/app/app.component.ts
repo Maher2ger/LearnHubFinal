@@ -13,6 +13,7 @@ import {AuthService} from "./services/auth.service";
 	           styleUrls  : ['./app.component.css']
            })
 export class AppComponent implements OnInit {
+	title = "LearningHub"
 	//_authSub: listen to the client state if the client is authenticated or not
 	private _authSub!: Subscription;
 	userIsAuthenticated: boolean = false;
