@@ -8,8 +8,8 @@ import {
 	StopwatchComponent
 } from "../../components/stopwatch/stopwatch.component";
 import {
-	SensorsListComponent
-} from "../../components/sensors-list/sensors-list.component";
+	SensorsComponent
+} from "../sensors/sensors.component";
 
 //---- services
 import {AuthService} from "../../services/auth.service";
@@ -32,8 +32,8 @@ export class DashboardComponent implements OnInit {
 	// -------- Child Components --------------
 	//access the child comp StopwatchComponent
 	@ViewChild(StopwatchComponent, {static: true}) StopwatchComponent!: StopwatchComponent;
-	//access the child comp SensorsListComponent
-	@ViewChild(SensorsListComponent, {static: true}) SensorsListComponent!: SensorsListComponent;
+	//access the child comp SensorsComponent
+	@ViewChild(SensorsComponent, {static: true}) SensorsListComponent!: SensorsComponent;
 	//access the child recordingForm
 	@ViewChild('recordingForm', {static: true}) recordingForm: any;
 
@@ -52,7 +52,7 @@ export class DashboardComponent implements OnInit {
 	sensorsList: any[] = [];          //local var, in it we store the sensors we get from server
 	controlpanelConnected: boolean = false;
 	isRecording: boolean = false;
-	localRecordingsList: Recording[] = [];    //local recordings-list from socketservice
+	localRecordingsList: Recording[] = [];    //local history from socketservice
 
 
 	constructor(public socketservice: SocketService,
@@ -150,7 +150,7 @@ export class DashboardComponent implements OnInit {
 			recordingComments = this.recordingForm.value['comments'];
 		}
 
-		//from the SensorsListComponent get the sensors, we want record from
+		//from the SensorsComponent get the sensors, we want record from
 		let formValues = this.SensorsListComponent.myForm.value;
 		for(let value in formValues) {
 			//check if the user has selected any sensors
@@ -171,5 +171,9 @@ export class DashboardComponent implements OnInit {
 		this.socketservice.stopRecording();
 		this.recordingForm.reset();                       //reset the recordingsform
 		this.SensorsListComponent.myForm.reset();          //reset the sensorsForm
+	}
+
+	updateSenosrsList() {
+		this.socketservice.getSensorsListFromServer();
 	}
 }

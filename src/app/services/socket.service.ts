@@ -59,7 +59,7 @@ export class SocketService {
 
 	getRecordingsListForOneClient(userId: string) {
 		//fetch the recording of one user from the database
-		return this.http.post<[any]>('http://localhost:3500/recordings', {creator: userId});
+		return this.http.post<[any]>('http://localhost:3500/recordings/allRecordings', {creator: userId});
 	}
 
 	getRecordingsDetails(id: string) {

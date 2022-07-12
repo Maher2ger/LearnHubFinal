@@ -12,15 +12,22 @@
 		
 		<!--  left: sensorsList section-->
 		<div class="sensorsList rounded-3 m-3" [class.opacity]="isRecording">
-		<h5
-				class="card-header card-header-color"
-		><b>Sensorslist</b>  <p style="float: right;">#: {{sensorsList.length}}</p>	  </h5>
-			<app-sensors-list
+		<h5 class="card-header card-header-color">
+			<b>Sensorslist    #:
+				{{sensorsList.length}}</b>
+			<button style="position: relative; margin:0px;padding:0px;float:right;"
+					(click)="updateSenosrsList()"
+			        class="btn btn-secondary">
+				<i  class="bi bi-arrow-clockwise"> update</i></button>
+			
+			
+  </h5>
+			<app-sensors
 					[sensorsList]="sensorsList"
 					[controlpanelConnected]="controlpanelConnected"
 					[isRecording]="isRecording"
 			>
-				</app-sensors-list>
+				</app-sensors>
 		</div>
 		
 		<!--  right: recording and control section  -->
@@ -110,7 +117,7 @@
 							  id="recordingsCard"
 					  >
 
-						<app-recordings-list [recordingsList]="localRecordingsList"></app-recordings-list>
+						<app-history [recordingsList]="localRecordingsList"></app-history>
 						  </div>
 				</div>
 			

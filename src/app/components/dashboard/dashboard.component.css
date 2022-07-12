@@ -96,7 +96,7 @@
     overflow-y: scroll;
 }
 
-app-sensors-list {
+app-sensors {
     height: 90%;
     background-color: red;
 
