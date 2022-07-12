@@ -25,7 +25,7 @@ router.post('/addNewRecording', (req, res) => {
 
 })
 
-router.post("", (req,res)=> {
+router.post("/allRecordings", (req,res)=> {
     Recording.find({
         creator: req.body.creator.replaceAll('"','')
     }).then((result) => {

@@ -1,6 +1,5 @@
 import time
 
-
 class Recording:
     start = 0
     end = 0

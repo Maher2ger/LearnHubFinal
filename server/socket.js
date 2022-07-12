@@ -3,8 +3,6 @@ const Recording = require("./models/recording");
 let controlPanelId = null;  //ControlPanel Socket ID: null by default, will get a value, when the control Panel is connected
 let isRecording = false;    //is true, when the conrolpanel is recording
 
-
-
 //when a socket event starts with 's', it means, it comes from server
 //when a socket event starts with 'cp', it means, it comes from control-panel
 // when a socket event starts with 'b', it means, it comes from browser client
@@ -15,9 +13,6 @@ module.exports = (socket) => {   // when new client connect to the io socket
     console.log(socket.handshake.headers.type + " connected, id: " + socket.id); // show when the client connected
 
     let recording;  //variable to store recording infos to be sent to db
-
-
-
     //if the client is controlloanel
     if (socket.handshake.headers.type == 'controlpanel') {
         controlPanelId = socket.id;     //store the controlpanel socket ID in the controlPanelId variable
@@ -144,8 +139,8 @@ module.exports = (socket) => {   // when new client connect to the io socket
             socket.emit('isRecording', false);
             socket.emit('S_notification',
                 {
-                    title: "Stop-recording",
-                    message: "Recording is finished",
+                    title: "stop-recording",
+                    message: "recording is finished",
                     timestamp: new Date().toTimeString().split(' ')[0],
                     color: 'text-danger'
                 });

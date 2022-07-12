@@ -5,18 +5,12 @@ import socketio
 sio = socketio.Client()
 
 root = tk.Tk()
-root.geometry('600x400+10+20')
+root.geometry('1000x300')
 root.title("myApp")
 
 
 def connect():
     print('Connection established')
-
-
-
-
-
-
 
 sio.connect('http://localhost:3500', headers={'type':"controlpanel"})
 
@@ -44,7 +38,6 @@ def stopRecording():
 
 @sio.on('S_getSensorsList')
 def sendSensorsList():
-    print('gottttttttttttttttttttt')
     sensorsList = []
     for sensor in app.getSensorsList():
         sensorsList.append({

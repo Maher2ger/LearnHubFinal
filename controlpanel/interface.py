@@ -71,17 +71,11 @@ class Application(tk.Frame):
 
     def create_widgets(self):
         self.sensors_frame.pack()
-        self.control_frame.pack(side="bottom")
-        entry1 = tk.Entry(self.control_frame)
-        entry1.pack()
-        entry2 = tk.Entry(self.control_frame)
-        entry2.pack()
-        tk.Button(self.control_frame, text="add new sensor", command= lambda: self.addNewSensor(Sensor(entry1.get(),
-                                                                                                       entry2.get(),
-                                                                                                       master=self.sensors_frame))).pack(side="bottom")
-        tk.Button(self.control_frame, text="activate all Sensors", command= lambda: self.stopRecordingAllSensors()).pack(side="bottom")
+        self.control_frame.pack()
         self.quit = tk.Button(self, text="Quit", fg='red', command=self.master.destroy)
         self.quit.pack(side='bottom')
+        tk.Button(self.control_frame, text="add new sensor", command= lambda: self.openNewSensorWindow()).pack(side="bottom")
+
 
     def addNewSensor(self, sensor):
         self.sensorslist.append(sensor)
@@ -128,3 +122,42 @@ class Application(tk.Frame):
         for sensor in self.sensorslist:
             sensor.sensorOnOffWithValue(False)
             print(sensor.sensorOn)
+
+    def saveAndClose(self, sensor, frame):
+        self.addNewSensor(sensor)
+        frame.destroy()
+
+    def openNewSensorWindow(self):
+        # Toplevel object which will
+        # be treated as a new window
+        newWindow = tk.Toplevel(self)
+
+        # sets the title of the
+        # Toplevel widget
+        newWindow.title("New Window")
+
+        # sets the geometry of toplevel
+        newWindow.geometry("400x150")
+
+        # A Label widget to show in toplevel
+
+
+        sensorsName = tk.Label(newWindow ,text = "sensor name :").grid(row = 0,column = 0)
+        sensorsType = tk.Label(newWindow ,text = "sensor type :").grid(row = 1,column = 0)
+        sensorsCategory = tk.Label(newWindow ,text = "sensor catergory :").grid(row = 2,column = 0)
+        sensorsNameEntry = tk.Entry(newWindow)
+        sensorsNameEntry.grid(row = 0,column = 1)
+        sensorsTypeEntry = tk.Entry(newWindow)
+        sensorsTypeEntry.grid(row = 1,column = 1)
+        sensorsCategoryEntry = tk.Entry(newWindow)
+        sensorsCategoryEntry.grid(row = 2,column = 1)
+        tk.Button(newWindow, text="Add",
+                  command= lambda: self.saveAndClose(sensor=Sensor(sensorsNameEntry.get(),
+                                                                   sensorsTypeEntry.get(),
+                                                                   sensorsCategoryEntry.get(),
+                                                                   master=self.sensors_frame),
+                                                                   frame = newWindow)).grid(row = 3,column = 1)
+
+
+
+
