@@ -4,11 +4,11 @@ import {RouterModule, Routes} from '@angular/router';
 
 // ----- compnents import
 import {
-	RecordingsTabComponent
-} from "./components/recordings-tab/recordings-tab.component";
+	allRecordingsComponent
+} from "./components/allRecordings/allRecordings.component";
 import {
 	RecordingDetailsComponent
-} from "./components/recording-details/recording-details.component";
+} from "./components/recordingDetails/recordingDetails.component";
 import { AboutComponent } from './components/about/about.component';
 import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {LoginComponent} from "./components/login/login.component";
@@ -23,7 +23,7 @@ const routes: Routes = [
 	{path: 'dashboard', component: DashboardComponent,canActivate: [AuthGuard]},
 	{path: 'login', component: LoginComponent},
 	{path: 'signup', component: SignupComponent},
-	{path: 'recordings', component: RecordingsTabComponent,canActivate: [AuthGuard]},
+	{path: 'recordings', component: allRecordingsComponent,canActivate: [AuthGuard]},
 	{path: 'recordings/:id', component: RecordingDetailsComponent,canActivate: [AuthGuard]},
 	{path: 'about', component: AboutComponent},
 	{path: '**',redirectTo:"dashboard", pathMatch:"full"},

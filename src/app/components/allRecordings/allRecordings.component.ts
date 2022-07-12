@@ -12,11 +12,11 @@ import {MatTable} from "@angular/material/table";
 
 
 @Component({
-	           selector   : 'app-recordings-tab',
-	           templateUrl: './recordings-tab.component.html',
-	           styleUrls  : ['./recordings-tab.component.css']
+	           selector   : 'app-allRecordings',
+	           templateUrl: './allRecordings.component.html',
+	           styleUrls  : ['./allRecordings.component.css']
            })
-export class RecordingsTabComponent implements OnInit {
+export class allRecordingsComponent implements OnInit {
 	// -------- Child Components --------------
 	//access the child table
 	@ViewChild(MatTable) table!: MatTable<RecordingElement>;

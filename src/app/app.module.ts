@@ -28,11 +28,11 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {TerminalComponent} from './components/terminal/terminal.component';
 import {StopwatchComponent} from './components/stopwatch/stopwatch.component';
 import {
-	SensorsListComponent
-} from './components/sensors-list/sensors-list.component';
+	SensorsComponent
+} from './components/sensors/sensors.component';
 import {
-	RecordingsListComponent
-} from './components/recordings-list/recordings-list.component';
+	HistoryComponent
+} from './components/history/history.component';
 
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './components/header/header/header.component';
@@ -40,10 +40,10 @@ import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {LoginComponent} from './components/login/login.component';
 import {SignupComponent} from './components/signup/signup.component';
 import {SidenavComponent} from './components/sidenav/sidenav.component';
-import {RecordingsTabComponent} from './components/recordings-tab/recordings-tab.component';
+import {allRecordingsComponent} from './components/allRecordings/allRecordings.component';
 import {
 	RecordingDetailsComponent
-} from './components/recording-details/recording-details.component';
+} from './components/recordingDetails/recordingDetails.component';
 import {AboutComponent} from './components/about/about.component';
 
 // -------  inceptors
@@ -64,13 +64,13 @@ const config: SocketIoConfig = {
 		          HeaderComponent,
 		          TerminalComponent,
 		          StopwatchComponent,
-		          SensorsListComponent,
-		          RecordingsListComponent,
+		          SensorsComponent,
+		          HistoryComponent,
 		          DashboardComponent,
 		          LoginComponent,
 		          SignupComponent,
 		          SidenavComponent,
-		          RecordingsTabComponent,
+		          allRecordingsComponent,
 		          RecordingDetailsComponent,
 		          AboutComponent],
 	          imports     : [

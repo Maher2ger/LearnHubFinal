@@ -9,9 +9,9 @@ import {ActivatedRoute, Router} from '@angular/router';
 
 
 @Component({
-  selector: 'app-recording-details',
-  templateUrl: './recording-details.component.html',
-  styleUrls: ['./recording-details.component.css']
+  selector: 'app-recordingDetails',
+  templateUrl: './recordingDetails.component.html',
+  styleUrls: ['./recordingDetails.component.css']
 })
 export class RecordingDetailsComponent implements OnInit, OnDestroy{
   isLoading = true;       //this var is needed to control the rendering of the spinner

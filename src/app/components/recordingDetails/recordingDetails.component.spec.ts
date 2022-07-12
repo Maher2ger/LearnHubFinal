@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RecordingDetailsComponent } from './recording-details.component';
+import { RecordingDetailsComponent } from './recordingDetails.component';
 
 describe('RecordingDetailsComponent', () => {
   let component: RecordingDetailsComponent;

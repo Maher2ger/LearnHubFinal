@@ -5,11 +5,11 @@ import {
 } from '@angular/core';
 
 @Component({
-	           selector   : 'app-sensors-list',
-	           templateUrl: './sensors-list.component.html',
-	           styleUrls  : ['./sensors-list.component.css']
+	           selector   : 'app-sensors',
+	           templateUrl: './sensors.component.html',
+	           styleUrls  : ['./sensors.component.css']
            })
-export class SensorsListComponent implements OnInit {
+export class SensorsComponent implements OnInit {
 	@Input() sensorsList!: any[];      //access the sensorsList in parentComp (DashboardComp)
 	//access the controlpanelConnected stat_var in Parent Comp
 	@Input() controlpanelConnected!: boolean;
