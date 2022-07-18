@@ -1,4 +1,3 @@
-//commentation done
 
 import {Component, OnInit} from '@angular/core';
 import {Subscription} from "rxjs"

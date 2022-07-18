@@ -1,4 +1,7 @@
 <div class="header">
+	
+	<button (click)="goBack()"
+	        class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i>back</button>
   <div id="counter">
       <p> #recordings: {{tableData.length}}</p>
 
@@ -14,15 +17,13 @@
 
 
 <div class="container"  *ngIf="!isLoading">
-
+<!--  Source: https://stackblitz.com/edit/angular-mat-horizontal-table-gijmau?file=app%2Ftable-basic-example.html      -->
   <table mat-table matSort
          [dataSource]="tableData.reverse()"
          class="mat-elevation-z8"
          >
-
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
-
   <!-- Position Column -->
   <ng-container matColumnDef="position">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
@@ -49,6 +50,7 @@
   <!-- Details Column -->
 
     <ng-container matColumnDef="details">
+	   
     <th mat-header-cell
         *matHeaderCellDef>  </th>
     <td mat-cell

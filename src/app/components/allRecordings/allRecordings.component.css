@@ -38,9 +38,9 @@ td {
 }
 
 #counter {
+    float: right;
     position: relative;
     font-size: 15px;
     margin: 5px;
     width: 20%;
-    left: 10px;
 }

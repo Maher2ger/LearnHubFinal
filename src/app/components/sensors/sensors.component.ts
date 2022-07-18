@@ -1,5 +1,3 @@
-//commentation done
-
 import {
 	Component, OnInit, Input, ViewChild
 } from '@angular/core';

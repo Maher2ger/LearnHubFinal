@@ -23,7 +23,7 @@ class Sensor(tk.Frame):
         tk.Label(self.sensorFrame, text=self.type, fg="brown").pack()
         self.canvas1 = tk.Canvas(master=self.sensorFrame, width="100", heigh="100",bg="white")
         self.canvas1.pack(side="top")
-        self.circle1 = self.createCircle(self.canvas1, "gray")
+        self.circle1 = self.createCircle(self.canvas1, "red")
         tk.Button(self.sensorFrame, text="ON/OFF", command=lambda: self.sensorOnOff()).pack(side="bottom")
 
     def createCircle(self,canvas,color):

@@ -25,7 +25,7 @@ mongoose.connect("mongodb+srv://maher2:ababab@cluster0.rtgkm.mongodb.net/learnHu
 app.use(bodyParser.json()); //Parse incoming request bodies in a middleware before your handlers
 app.use(bodyParser.urlencoded({extended: false}))
 
-//important to not be blocked from the browser
+//important to not be blocked by the browser
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");

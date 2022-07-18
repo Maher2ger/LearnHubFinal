@@ -1,5 +1,3 @@
-//commentation done
-
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Subscription} from "rxjs";
 

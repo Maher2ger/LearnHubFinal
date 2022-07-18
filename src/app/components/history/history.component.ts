@@ -1,5 +1,3 @@
-//commentation done
-
 import {Component, Input, OnInit} from '@angular/core';
 import {Recording} from "../../models/recording.model";
 

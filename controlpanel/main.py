@@ -1,12 +1,14 @@
 import tkinter as tk
 from interface import Application
 import socketio
+import time
 
+#init socket io
 sio = socketio.Client()
 
 root = tk.Tk()
 root.geometry('1000x300')
-root.title("myApp")
+root.title("Controlpanel Simulator")
 
 
 def connect():
@@ -33,7 +35,8 @@ def startRecording(data):
 def stopRecording():
     for sensor in app.getSensorsList():
         sensor.sensorOnOffWithValue(False)
-    sio.emit("cp_recordingFile", )
+    createRecordingsFile()
+    sio.emit("cp_recordingFile" )
 
 
 @sio.on('S_getSensorsList')
@@ -51,7 +54,11 @@ def sendSensorsList():
     print('R_sensors-infos sent to server')
     return sio.emit('CP_sensorsListData', sensorsList)
 
-
+def createRecordingsFile():
+    with open('recordings/sample.txt') as f:
+      lines = f.readlines()
+    with open('recordings/Recording'+str(int(time.time()))+'.txt', 'w') as f:
+      f.write(''.join(lines))
 
 app = Application(master=root)
 app.mainloop()

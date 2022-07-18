@@ -1,4 +1,3 @@
-//commentation done
 
 import {
 	ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree

@@ -1,5 +1,3 @@
-//commentation done
-
 import {Component, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 
@@ -27,6 +25,7 @@ export class HeaderComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+
 		this._ControlPanelstateSub = this.socketservice.controlpanelConnected
 		                     .subscribe((state: boolean) => {
 								 this.controlpanelConnected = state;

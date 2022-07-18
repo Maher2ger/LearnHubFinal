@@ -1,5 +1,3 @@
-//commentation done
-
 
 //import socket modules
 const {createServer} = require("http");

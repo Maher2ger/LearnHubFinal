@@ -1,0 +1,26 @@
+.section {
+    display: inline-block;
+    position: relative;
+    padding: 10px;
+    margin-top: 20px;
+    width: 70%;
+    border: 0px solid black;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.shadow {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+

@@ -1,5 +1,3 @@
-//commentation done
-
 import {Component, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 
@@ -18,17 +16,12 @@ export class AppComponent implements OnInit {
 	private _authSub!: Subscription;
 	userIsAuthenticated: boolean = false;
 
-
-
-
-
 	constructor(private authService: AuthService) {
-
-
 	}
 
 
 	ngOnInit() {
+		//try to authenticate the user automatically using session variables in LocalStorage
 		this.authService.autoAuthUser();
 		this._authSub = this.authService.getAuthStatusListner()
 		                    .subscribe((isAuthenticated) => {

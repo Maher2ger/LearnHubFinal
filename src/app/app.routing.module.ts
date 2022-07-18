@@ -27,7 +27,6 @@ const routes: Routes = [
 	{path: 'recordings/:id', component: RecordingDetailsComponent,canActivate: [AuthGuard]},
 	{path: 'about', component: AboutComponent},
 	{path: '**',redirectTo:"dashboard", pathMatch:"full"},
-
 ]
 
 @NgModule({

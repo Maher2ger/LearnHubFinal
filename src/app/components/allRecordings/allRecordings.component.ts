@@ -1,5 +1,3 @@
-//commentation done
-
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
 
@@ -77,6 +75,11 @@ export class allRecordingsComponent implements OnInit {
 		} else {
 			return '';
 		}
+	}
+
+	goBack () {
+		// navigate to the dashboard page
+		this.router.navigate(['dashboard']);
 	}
 
 
