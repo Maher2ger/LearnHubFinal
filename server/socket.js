@@ -1,4 +1,5 @@
 const Recording = require("./models/recording");
+const fs = require('fs');
 
 let controlPanelId = null;  //ControlPanel Socket ID: null by default, will get a value, when the control Panel is connected
 let isRecording = false;    //is true, when the conrolpanel is recording
@@ -172,6 +173,13 @@ module.exports = (socket) => {   // when new client connect to the io socket
                     color: 'text-warning'
                 });
         }
+        //sample file will be saved on the server after every recording
+        fs.writeFile('server/media/recordings/Recording'+ Date.now().toString() +'.txt'
+            , '0000001', function(err) {
+            if(err) {
+                return console.log(err);
+            }
+        });
 
 
     })
@@ -186,6 +194,13 @@ module.exports = (socket) => {   // when new client connect to the io socket
             console.log(err);
         })
     })
+
+    socket.on("upload", (file, callback) => {
+        console.log('file recieved');
+        writeFile("media/recordings/", file, (err) => {
+            callback({ message: err ? "failure" : "success" });
+
+        })});
 
 
 }

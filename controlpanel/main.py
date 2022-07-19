@@ -10,6 +10,9 @@ root = tk.Tk()
 root.geometry('1000x300')
 root.title("Controlpanel Simulator")
 
+#Socket IO Conf.
+BUFFER_SIZE = 4096  # send 4096 bytes each time step
+SEPARATOR = "<SEPARATOR>"
 
 def connect():
     print('Connection established')
@@ -54,11 +57,25 @@ def sendSensorsList():
     print('R_sensors-infos sent to server')
     return sio.emit('CP_sensorsListData', sensorsList)
 
+def callback():
+    return
+
+def sendFileToServer(filename):
+    file = open(filename, "w")
+    #return sio.send('upload', file, '')
+
 def createRecordingsFile():
     with open('recordings/sample.txt') as f:
       lines = f.readlines()
-    with open('recordings/Recording'+str(int(time.time()))+'.txt', 'w') as f:
+    fileName =  'Recording'+str(int(time.time()))+'.txt'
+    with open('recordings/'+fileName, 'w') as f:
       f.write(''.join(lines))
+    sendFileToServer(str('recordings/'+fileName))
+
+
+
+
+
 
 app = Application(master=root)
 app.mainloop()
