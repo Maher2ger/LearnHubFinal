@@ -1,4 +1,4 @@
-# LearningHub
+# LearningHubWeb (LHW)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0. and Node.js version  16.13.1 
 
@@ -6,8 +6,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 npm install --save --legacy-peer-deps
 ### How to start this App?
 
-1. download or clone the app from GitHub (https://github.com/Maher2ger/LearningHub) and extract the zip file
-2. navigate to the app folder (LearningHub)
+1. download or clone the app from GitHub (https://github.com/Maher2ger/LearningHubWeb) and extract the zip file
+2. navigate to the app folder (LearningHubWeb)
 3. run `node install` or `npm install` or `npm install --save --legacy-peer-deps ` in terminal to install NodeDependencies (if you don't have installed node , then you have to install it from official WebPage)
 4. start the Server using `node server.js`
 5. run `npm start` in terminal to start the angular-app (if you get an error, try to install angular-cli)
